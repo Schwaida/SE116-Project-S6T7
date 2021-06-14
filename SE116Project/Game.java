@@ -32,18 +32,23 @@ public class Game implements ItemStats {
             case "east":
                 Map.moveDirection(currentRoomX, currentRoomY+1);
                 showRoom(Map.currentRoom, lastRoom, "east");
+                showRoad(Map.currentRoom);
                 break;
             case "west":
                 Map.moveDirection(currentRoomX, currentRoomY-1);
                 showRoom(Map.currentRoom, lastRoom, "west");
+                showRoad(Map.currentRoom);
                 break;
             case "north":
                 Map.moveDirection(currentRoomX-1, currentRoomY);
                 showRoom(Map.currentRoom, lastRoom, "north");
+                showRoad(Map.currentRoom);
                 break;
             case "south":
                 Map.moveDirection(currentRoomX+1, currentRoomY);
                 showRoom(Map.currentRoom, lastRoom, "south");
+                System.out.println("Choose your next room to continue..");
+                showRoad(Map.currentRoom);
                 break;
             case "road":
                 showRoad(Map.currentRoom);
@@ -70,6 +75,7 @@ public class Game implements ItemStats {
 
 
                 if(currentRoom.getMonsters() != null && !currentRoom.getMonsters().isEmpty()) {
+
                     printAttacks(currentRoom);
 
                 }
@@ -113,20 +119,33 @@ public class Game implements ItemStats {
 
     }
     public static void launchAttacks(Characters attacker, Characters defender) {
+        if (attacker.isDead()|| defender.isDead())
+            System.out.println();
 
-        System.out.print(attacker.getName() + " attacks! ");
-        int damage = attacker.attack(defender);
-        if(damage == -1) {
-            System.out.println("... but " + defender.getName() + " avoids the attack ! ");
-        }
         else {
-            System.out.println("... and reduce "+ defender.getName() + "'s HP by " + damage);
-            defender.printStats();
+            System.out.print(attacker.getName() + " attacks! ");
+            int damage = attacker.attack(defender);
+            if (damage == -1) {
+                System.out.println("... but " + defender.getName() + " avoids the attack ! ");
+            } else {
+
+                System.out.println("... and reduce " + defender.getName() + "'s HP by " + damage);
+                defender.printStats();
+            }
+            System.out.print(defender.getName() + " attacks! ");
+            int damage1 = defender.attack(attacker);
+            if (damage1 == -1) {
+                System.out.println("... but " + attacker.getName() + " avoids the attack ! ");
+            } else {
+
+                System.out.println("... and reduce " + attacker.getName() + "'s HP by " + damage1);
+                attacker.printStats();
+            }
         }
-        }
+    }
 
     public static void printAttacks(Rooms currentRoom) {
-
+        boolean dead = false;
         Monsters monster = currentRoom.getMonsters().get(0);
         System.out.println("There is a "+monster.getName()+" ! Look out!");
         /*
@@ -143,13 +162,13 @@ public class Game implements ItemStats {
 
 
         do {
-            System.out.println("You want : (1) Attack"+monster.getName()+" (2) Try to Escape ? ");
+            System.out.println("You want : (1) Attack"+monster.getName()+" (2) Go another room ");
             input = cl.nextInt();
             if(input == 1) {
                 loop = false;
             }
             else if(input == 2) {
-                System.out.println("You escaped from the monster before it sees you");
+                System.out.println("You left the room before the monster saw you");
                 escape = true;
                 break;
 
@@ -171,6 +190,8 @@ public class Game implements ItemStats {
                     break;
                     }else if (hero.isDead()){
                     System.out.println("You died.... Game over :( ");
+                    dead=true;
+                    break;
                 }
                 }
                 launchAttacks(monster, hero);
@@ -221,7 +242,7 @@ public class Game implements ItemStats {
         scanner=new Scanner(System.in);
         int currentWeight=0;
         int maxWeight=30;
-        while(-1 < currentWeight && currentWeight <= maxWeight) {
+      /*  while(-1 < currentWeight && currentWeight <= maxWeight) {
             WeightSystem System = new WeightSystem();
             if (System.ironSmallAxeTaken) {
                 currentWeight += ironSmallAxeWeight;
@@ -351,7 +372,7 @@ public class Game implements ItemStats {
             if (System.compositeBowDropped){
                 currentWeight -= compositeBowWeight;
             }
-        }
+        }*/
         while (loop) {
             try {
                 input = scanner.nextInt();
@@ -364,6 +385,7 @@ public class Game implements ItemStats {
             if (input == 1) {
 
                     startGame();
+
                     loop = false;
 
 
@@ -424,6 +446,8 @@ public class Game implements ItemStats {
         }
     public static void directions() {
 
+
+
         Rooms[][] maze = new Rooms[5][5];
 
         maze[0][1] = new Rooms("Room 1","Stinking room",new Coordinates(0,1));
@@ -448,6 +472,17 @@ public class Game implements ItemStats {
 
 
     }
+   /* public static Rooms[][] directions(Hero hero) {
+        Rooms[][] dungeon = new Rooms[5][5];
+        for (int i = 0; i < dungeon.length; i++) {
+            for (int j = 0; j < dungeon.length; j++) {
+                dungeon[i][j] = Rooms.newRoomInstance();
+
+            }
+        }
+        hero.setCurrRoom(dungeon[14][14]);
+        return dungeon;
+    }*/
 
         private static void credits () {
             System.out.println("Egemen Akgüner");
@@ -455,3 +490,4 @@ public class Game implements ItemStats {
             System.out.println("Busegül Özkaya");
         }
     }
+
