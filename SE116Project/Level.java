@@ -22,8 +22,13 @@ public class Level {
 
         Monsters dwarf = new Monsters("Dwarf",200,0.65,40);
         Monsters goblin = new Monsters("Goblin",250,0.9,50);
+        Monsters elf =new Monsters("Elf",100,0.4,10);
+        TownPeople healer= new TownPeople("Healer",true);
+        TownPeople townPeople= new TownPeople("Town People",false);
         Map.getRoom(1,1).settingMonsters(dwarf);
         Map.getRoom(2,2).settingMonsters(goblin);
+        Map.getRoom(1,1).settingMonsters(elf);
+        Map.getRoom(1,1).settingTownsPeople(healer);
 
 
     }

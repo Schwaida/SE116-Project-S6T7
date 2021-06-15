@@ -13,6 +13,11 @@ public class Characters {
     private ArrayList<Items> inventory;
 
 
+    public Characters(String name){
+        this.name = name;
+    }
+
+
 
     public Characters(String name,int hitPoint, double defense, double strength){
         this.name = name;
@@ -77,14 +82,14 @@ public class Characters {
 
         String comment;
 
-        if(hitPoint >= 200) {
+        if(hitPoint >= 2000) {
             comment = "It looks uninjured";
-        }else if(hitPoint < 200 && hitPoint >= 100) {
+        }else if(hitPoint <= 2000 && hitPoint >= 1000) {
             comment = "It looks barely injured";
-        }else if(hitPoint< 100 && hitPoint > 0 ) {
+        }else if(hitPoint<=1000 && hitPoint > 0 ) {
             comment = "It looks near death";
         }else {
-            comment = "It looks death";
+            comment = "It looks death, monster will try to attack one last time!";
         }
 
         if(hitPoint >0)

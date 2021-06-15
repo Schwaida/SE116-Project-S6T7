@@ -73,6 +73,10 @@ public class Game implements ItemStats {
                 System.out.println("You head off to  " + currentRoom.getRoomName() + "  in the " + direction);
                 System.out.println(currentRoom.getDefinition());
 
+                if(currentRoom.getTownPeoples()!= null && !currentRoom.getTownPeoples().isEmpty()) {
+                    System.out.println("There is "+ currentRoom.getTownPeoples().size()+" Townspeople in this room.");
+                }
+
 
                 if(currentRoom.getMonsters() != null && !currentRoom.getMonsters().isEmpty()) {
 
@@ -146,61 +150,72 @@ public class Game implements ItemStats {
 
     public static void printAttacks(Rooms currentRoom) {
         boolean dead = false;
-        Monsters monster = currentRoom.getMonsters().get(0);
+        int i =-1;
+        i++;
+
+
+            Monsters monster = currentRoom.getMonsters().get(i);
+            System.out.println("There is a " + monster.getName() + " ! Look out!");
+            boolean loop = true;
+            int input;
+            Scanner cl = new Scanner(System.in);
+            boolean escape = false;
+
+
+
+       /*Monsters monster = currentRoom.getMonsters().get(0);
         System.out.println("There is a "+monster.getName()+" ! Look out!");
-        /*
-         * Choose attacking or escape
-         */
+
+         // Choose attacking or escape
+
         boolean loop = true;
         int input;
         Scanner cl = new Scanner(System.in);
-        boolean escape = false;
+        boolean escape = false;*/
 
-        /*
-         * get first monster!
-         */
+            /*
+             * get first monster!
+             */
 
 
-        do {
-            System.out.println("You want : (1) Attack"+monster.getName()+" (2) Go another room ");
-            input = cl.nextInt();
-            if(input == 1) {
-                loop = false;
-            }
-            else if(input == 2) {
-                System.out.println("You left the room before the monster saw you");
-                escape = true;
-                break;
-
-            }
-            else {
-                System.out.println("Please choose a valid option! ");
-            }
-
-        } while(loop);
-
-        if(!escape) {
-            System.out.println("Start attacking " + monster.getName());
-
-            while(!monster.isDead() && !hero.isDead()) { //Problem around here
-                launchAttacks(hero, monster);
-                if(monster.isDead()) {
-                    currentRoom.deleteMonsters(monster);
-                    System.out.println("You picked up all inventory of " + monster.getName() + "  - Check your inventory now!");
+            do {
+                System.out.println("You want : (1) Attack" + monster.getName() + " (2) Go another room ");
+                input = cl.nextInt();
+                if (input == 1) {
+                    loop = false;
+                } else if (input == 2) {
+                    System.out.println("You left the room before the monster saw you");
+                    escape = true;
                     break;
-                    }else if (hero.isDead()){
-                    System.out.println("You died.... Game over :( ");
-                    dead=true;
-                    break;
+
+                } else {
+                    System.out.println("Please choose a valid option! ");
                 }
+
+            } while (loop);
+
+            if (!escape) {
+                System.out.println("Start attacking " + monster.getName());
+
+                while (!monster.isDead() && !hero.isDead()) { //Problem around here
+                    launchAttacks(hero, monster);
+                    if (monster.isDead()) {
+                        currentRoom.deleteMonsters(monster);
+                        System.out.println("You picked up all inventory of " + monster.getName() + "  - Check your inventory now!");
+                        break;
+                    } else if (hero.isDead()) {
+                        System.out.println("You died.... Game over :( ");
+                        dead = true;
+                        break;
+                    }
                 }
                 launchAttacks(monster, hero);
-        }
-        else {
-            System.out.println("You're lucky ! You succeeded to escape from Monster!");
+            } else {
+                System.out.println("You succeeded to escape from the monster but it seems you forgot to save Town People!");
+            }
+
         }
 
-    }
 
 
 
@@ -410,10 +425,10 @@ public class Game implements ItemStats {
         System.out.println("Enter your name: ");
         String heroName = scanner.nextLine();
         hero.setName(heroName);
-        System.out.println("Enter your gender:");
+        /*System.out.println("Enter your gender:");
         String genderChosen= scanner.nextLine();
 
-        System.out.println("Your gender is: "+genderChosen);
+        System.out.println("Your gender is: "+genderChosen);*/
 
 
         System.out.println("Ahh... I see, " + hero.getName() + " the brave hero!");
@@ -467,8 +482,15 @@ public class Game implements ItemStats {
 
         Monsters dwarf = new Monsters("Dwarf",200,0.65,40);
         Monsters goblin = new Monsters("Goblin",250,0.9,50);
+        Monsters elf =new Monsters("Elf",100,0.4,10);
+        TownPeople healer= new TownPeople("Healer",true);
+        TownPeople townPeople= new TownPeople("Town People",false);
         Map.getRoom(1,1).settingMonsters(dwarf);
         Map.getRoom(2,2).settingMonsters(goblin);
+        Map.getRoom(1,1).settingMonsters(elf);
+        Map.getRoom(1,1).settingTownsPeople(healer);
+
+
 
 
     }
@@ -490,4 +512,3 @@ public class Game implements ItemStats {
             System.out.println("Busegül Özkaya");
         }
     }
-

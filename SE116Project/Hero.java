@@ -2,7 +2,7 @@ package SE116Project;
 
 public class Hero extends Characters{
 
-    private static final int hitPoint =200;
+    private static final int hitPoint =2000;
     private static final double defense =0.8;
     private static final double strength =50;
 
