@@ -201,11 +201,13 @@ public class Game implements ItemStats {
                     launchAttacks(hero, monster);
                     if (monster.isDead()) {
                         currentRoom.deleteMonsters(monster);
+                        System.out.println(monster.getName()+ " died...");
                         System.out.println("You picked up all inventory of " + monster.getName() + "  - Check your inventory now!");
                         break;
-                    } else if (hero.isDead()) {
+                    } else if (hero.isDead()) {// ölme olayı burada oluyor
                         System.out.println("You died.... Game over :( ");
                         dead = true;
+                        System.exit(0);
                         break;
                     }
                 }
@@ -401,6 +403,7 @@ public class Game implements ItemStats {
 
                     startGame();
 
+
                     loop = false;
 
 
@@ -449,14 +452,7 @@ public class Game implements ItemStats {
             command(hero);
             System.out.print("-->");
             playerInput = scanner.nextLine();
-
             }
-        if (hero.isDead()){
-            System.out.println("You died game over");
-            return;
-
-        }
-
 
         }
     public static void directions() {
@@ -480,15 +476,23 @@ public class Game implements ItemStats {
         Map.map = maze;
         Map.currentRoom = maze[0][1];
 
-        Monsters dwarf = new Monsters("Dwarf",200,0.65,40);
-        Monsters goblin = new Monsters("Goblin",250,0.9,50);
-        Monsters elf =new Monsters("Elf",100,0.4,10);
+        Monsters dwarf = new Monsters("Dwarf",200,1,40);
+        Monsters goblin = new Monsters("Goblin",120,0.4,60);
+        Monsters elf =new Monsters("Elf",30,0.1,10);
+        Monsters skeleton =new Monsters("Skeletons",80,0.2,23);
+        Monsters zombie =new Monsters("Zombie",150,0.6,30);
+        Monsters vampire =new Monsters("Vampire",400,1.5,100);
         TownPeople healer= new TownPeople("Healer",true);
         TownPeople townPeople= new TownPeople("Town People",false);
         Map.getRoom(1,1).settingMonsters(dwarf);
         Map.getRoom(2,2).settingMonsters(goblin);
         Map.getRoom(1,1).settingMonsters(elf);
         Map.getRoom(1,1).settingTownsPeople(healer);
+        Map.getRoom(2,2).settingTownsPeople(townPeople);
+        Map.getRoom(1,0).settingMonsters(dwarf);
+        Map.getRoom(1,2).settingMonsters(zombie);
+        Map.getRoom(2,3).settingMonsters(vampire);
+        Map.getRoom(3,3).settingMonsters(skeleton);
 
 
 

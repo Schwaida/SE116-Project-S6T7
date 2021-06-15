@@ -89,7 +89,7 @@ public class Characters {
         }else if(hitPoint<=1000 && hitPoint > 0 ) {
             comment = "It looks near death";
         }else {
-            comment = "It looks death, monster will try to attack one last time!";
+            comment = "It looks death, will try to attack one last time!";
         }
 
         if(hitPoint >0)
