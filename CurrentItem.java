@@ -7,219 +7,231 @@ public class CurrentItem implements ItemStats{
     private int armorProtection,armorValue,armorWeight;
 
 
-    public void usingAxe(int a,int b){
-    // 2 parametreli
 
+    public String usingWeapon(int a,int b,int c) {
+        // 3 parametreli
 
-        if(a==1){
-           //iron
+        if (a == 1) {
+            //axe
 
-            if(b==1){
-                //small
-                setAxeDamage(ironSmallAxeDamage);
-                setAxeBlockPower(ironSmallAxeBlockPower);
-                setAxeRange(ironSmallAxeRange);
-                setAxeValue(ironSmallAxeValue);
-                setAxeWeight(ironSmallAxeWeight);
-                display();
-            }
-            else if(b==2){
-                //normal
-                setAxeDamage(ironAxeDamage);
-                setAxeBlockPower(ironAxeBlockPower);
-                setAxeRange(ironAxeRange);
-                setAxeValue(ironAxeValue);
-                setAxeWeight(ironAxeWeight);
-                display();
-            }
-            else if(b==3){
-                //broad
-                setAxeDamage(ironBroadAxeDamage);
-                setAxeBlockPower(ironBroadAxeBlockPower);
-                setAxeRange(ironBroadAxeRange);
-                setAxeValue(ironBroadAxeValue);
-                setAxeWeight(ironBroadAxeWeight);
-                display();
+            if (b == 1) {
+                //iron
+
+                if (c == 1) {
+                    //small
+                    setAxeDamage(ironSmallAxeDamage);
+                    setAxeBlockPower(ironSmallAxeBlockPower);
+                    setAxeRange(ironSmallAxeRange);
+                    setAxeValue(ironSmallAxeValue);
+                    setAxeWeight(ironSmallAxeWeight);
+                    display();
+                    return ironSmallAxe;
+
+                } else if (c == 2) {
+                    //normal
+                    setAxeDamage(ironAxeDamage);
+                    setAxeBlockPower(ironAxeBlockPower);
+                    setAxeRange(ironAxeRange);
+                    setAxeValue(ironAxeValue);
+                    setAxeWeight(ironAxeWeight);
+                    display();
+                    return ironAxe;
+
+                } else if (c == 3) {
+                    //broad
+                    setAxeDamage(ironBroadAxeDamage);
+                    setAxeBlockPower(ironBroadAxeBlockPower);
+                    setAxeRange(ironBroadAxeRange);
+                    setAxeValue(ironBroadAxeValue);
+                    setAxeWeight(ironBroadAxeWeight);
+                    display();
+                    return ironBroadAxe;
+                }
+
+            } else if (b == 2) {
+                //bronze
+
+                if (c == 1) {
+                    //small
+                    setAxeDamage(bronzeSmallAxeDamage);
+                    setAxeBlockPower(bronzeSmallAxeBlockPower);
+                    setAxeRange(bronzeSmallAxeRange);
+                    setAxeValue(bronzeSmallAxeValue);
+                    setAxeWeight(bronzeSmallAxeWeight);
+                    display();
+                    return bronzeSmallAxe;
+
+                } else if (c == 2) {
+                    //normal
+                    setAxeDamage(bronzeAxeDamage);
+                    setAxeBlockPower(bronzeAxeBlockPower);
+                    setAxeRange(bronzeAxeRange);
+                    setAxeValue(bronzeAxeValue);
+                    setAxeWeight(bronzeAxeWeight);
+                    display();
+                    return bronzeAxe;
+                } else if (c == 3) {
+                    //broad
+                    setAxeDamage(bronzeBroadAxeDamage);
+                    setAxeBlockPower(bronzeBroadAxeBlockPower);
+                    setAxeRange(bronzeBroadAxeRange);
+                    setAxeValue(bronzeBroadAxeValue);
+                    setAxeWeight(bronzeBroadAxeWeight);
+                    display();
+                    return bronzeBroadAxe;
+                }
+
+            } else if (b == 3) {
+                //steel
+
+                if (c == 1) {
+                    //small
+                    setAxeDamage(steelSmallAxeDamage);
+                    setAxeBlockPower(steelSmallAxeBlockPower);
+                    setAxeRange(steelSmallAxeRange);
+                    setAxeValue(steelSmallAxeValue);
+                    setAxeWeight(steelSmallAxeWeight);
+                    display();
+                    return steelSmallAxe;
+
+                } else if (c == 2) {
+                    //normal
+                    setAxeDamage(steelAxeDamage);
+                    setAxeBlockPower(steelAxeBlockPower);
+                    setAxeRange(steelAxeRange);
+                    setAxeValue(steelAxeValue);
+                    setAxeWeight(steelAxeWeight);
+                    display();
+                    return steelAxe;
+                } else if (c == 3) {
+                    //broad
+                    setAxeDamage(steelBroadAxeDamage);
+                    setAxeBlockPower(steelBroadAxeBlockPower);
+                    setAxeRange(steelBroadAxeRange);
+                    setAxeValue(steelBroadAxeValue);
+                    setAxeWeight(steelBroadAxeWeight);
+                    display();
+                    return steelBroadAxe;
+                }
             }
 
         }
-        else if(a==2){
-           //bronze
+        else if (a == 2) {
+           //sword
 
-            if(b==1){
-                //small
-                setAxeDamage(bronzeSmallAxeDamage);
-                setAxeBlockPower(bronzeSmallAxeBlockPower);
-                setAxeRange(bronzeSmallAxeRange);
-                setAxeValue(bronzeSmallAxeValue);
-                setAxeWeight(bronzeSmallAxeWeight);
-                display();
 
-            }
-            else if(b==2){
-                //normal
-                setAxeDamage(bronzeAxeDamage);
-                setAxeBlockPower(bronzeAxeBlockPower);
-                setAxeRange(bronzeAxeRange);
-                setAxeValue(bronzeAxeValue);
-                setAxeWeight(bronzeAxeWeight);
-                display();
-            }
-            else if(b==3){
-                //broad
-                setAxeDamage(bronzeBroadAxeDamage);
-                setAxeBlockPower(bronzeBroadAxeBlockPower);
-                setAxeRange(bronzeBroadAxeRange);
-                setAxeValue(bronzeBroadAxeValue);
-                setAxeWeight(bronzeBroadAxeWeight);
-                display();
+            if (b== 1) {
+                //iron
+
+                if (c == 1) {
+                    //dagger
+                    setSwordDamage(ironDaggerDamage);
+                    setSwordBlockPower(ironDaggerBlockPower);
+                    setSwordRange(ironDaggerRange);
+                    setSwordValue(ironDaggerValue);
+                    setSwordWeight(ironDaggerWeight);
+                    display();
+                    return ironDagger;
+
+                } else if (c == 2) {
+                    //short
+                    setSwordDamage(ironShortSwordDamage);
+                    setSwordBlockPower(ironShortSwordBlockPower);
+                    setSwordRange(ironShortSwordRange);
+                    setSwordValue(ironShortSwordValue);
+                    setSwordWeight(ironShortSwordWeight);
+                    display();
+                    return ironShortSword;
+
+                } else if (c == 3) {
+                    //long
+                    setSwordDamage(ironLongSwordDamage);
+                    setSwordBlockPower(ironLongSwordBlockPower);
+                    setSwordRange(ironLongSwordRange);
+                    setSwordValue(ironLongSwordValue);
+                    setSwordWeight(ironLongSwordWeight);
+                    display();
+                    return ironLongSword;
+
+                }
+
+            } else if (b == 2) {
+                //bronze
+                if (c == 1) {
+                    //dagger
+                    setSwordDamage(bronzeDaggerDamage);
+                    setSwordBlockPower(bronzeDaggerBlockPower);
+                    setSwordRange(bronzeDaggerRange);
+                    setSwordValue(bronzeDaggerValue);
+                    setSwordWeight(bronzeDaggerWeight);
+                    display();
+                    return bronzeDagger;
+
+                } else if (c == 2) {
+                    //short
+                    setSwordDamage(bronzeShortSwordDamage);
+                    setSwordBlockPower(bronzeShortSwordBlockPower);
+                    setSwordRange(bronzeShortSwordRange);
+                    setSwordValue(bronzeShortSwordValue);
+                    setSwordWeight(bronzeShortSwordWeight);
+                    display();
+                    return bronzeShortSword;
+
+                } else if (c == 3) {
+                    //long
+                    setSwordDamage(bronzeLongSwordDamage);
+                    setSwordBlockPower(bronzeLongSwordBlockPower);
+                    setSwordRange(bronzeLongSwordRange);
+                    setSwordValue(bronzeLongSwordValue);
+                    setSwordWeight(bronzeLongSwordWeight);
+                    display();
+                    return bronzeLongSword;
+
+                }
+
+            } else if (b == 3) {
+                //steel
+                if (c == 1) {
+                    //dagger
+                    setSwordDamage(steelDaggerDamage);
+                    setSwordBlockPower(steelDaggerBlockPower);
+                    setSwordRange(steelDaggerRange);
+                    setSwordValue(steelDaggerValue);
+                    setSwordWeight(steelDaggerWeight);
+                    display();
+                    return steelDagger;
+
+                } else if (c == 2) {
+                    //short
+                    setSwordDamage(steelShortSwordDamage);
+                    setSwordBlockPower(steelShortSwordBlockPower);
+                    setSwordRange(steelShortSwordRange);
+                    setSwordValue(steelShortSwordValue);
+                    setSwordWeight(steelShortSwordWeight);
+                    display();
+                    return steelShortSword;
+
+                } else if (c == 3) {
+                    //long
+                    setSwordDamage(steelLongSwordDamage);
+                    setSwordBlockPower(steelLongSwordBlockPower);
+                    setSwordRange(steelLongSwordRange);
+                    setSwordValue(steelLongSwordValue);
+                    setSwordWeight(steelLongSwordWeight);
+                    display();
+                    return steelLongSword;
+
+                }
+
             }
 
         }
-        else if(a==3){
-            //steel
 
-            if(b==1){
-                //small
-                setAxeDamage(steelSmallAxeDamage);
-                setAxeBlockPower(steelSmallAxeBlockPower);
-                setAxeRange(steelSmallAxeRange);
-                setAxeValue(steelSmallAxeValue);
-                setAxeWeight(steelSmallAxeWeight);
-                display();
 
-            }
-            else if(b==2){
-                //normal
-                setAxeDamage(steelAxeDamage);
-                setAxeBlockPower(steelAxeBlockPower);
-                setAxeRange(steelAxeRange);
-                setAxeValue(steelAxeValue);
-                setAxeWeight(steelAxeWeight);
-                display();
-            }
-            else if(b==3){
-                //broad
-                setAxeDamage(steelBroadAxeDamage);
-                setAxeBlockPower(steelBroadAxeBlockPower);
-                setAxeRange(steelBroadAxeRange);
-                setAxeValue(steelBroadAxeValue);
-                setAxeWeight(steelBroadAxeWeight);
-                display();
-            }
-        }
+            return null;
 
     }
-    public void usingSword(int a,int b){
-        // 2 parametreli
-
-
-        if(a==1){
-            //iron
-
-            if(b==1){
-                //dagger
-                setSwordDamage(ironDaggerDamage);
-                setSwordBlockPower(ironDaggerBlockPower);
-                setSwordRange(ironDaggerRange);
-                setSwordValue(ironDaggerValue);
-                setSwordWeight(ironDaggerWeight);
-                display();
-
-            }
-            else if(b==2){
-                //short
-                setSwordDamage(ironShortSwordDamage);
-                setSwordBlockPower(ironShortSwordBlockPower);
-                setSwordRange(ironShortSwordRange);
-                setSwordValue(ironShortSwordValue);
-                setSwordWeight(ironShortSwordWeight);
-                display();
-
-            }
-            else if(b==3){
-                //long
-                setSwordDamage(ironLongSwordDamage);
-                setSwordBlockPower(ironLongSwordBlockPower);
-                setSwordRange(ironLongSwordRange);
-                setSwordValue(ironLongSwordValue);
-                setSwordWeight(ironLongSwordWeight);
-                display();
-
-            }
-
-        }
-        else if(a==2){
-            //bronze
-            if(b==1){
-                //dagger
-                setSwordDamage(bronzeDaggerDamage);
-                setSwordBlockPower(bronzeDaggerBlockPower);
-                setSwordRange(bronzeDaggerRange);
-                setSwordValue(bronzeDaggerValue);
-                setSwordWeight(bronzeDaggerWeight);
-                display();
-
-            }
-            else if(b==2){
-                //short
-                setSwordDamage(bronzeShortSwordDamage);
-                setSwordBlockPower(bronzeShortSwordBlockPower);
-                setSwordRange(bronzeShortSwordRange);
-                setSwordValue(bronzeShortSwordValue);
-                setSwordWeight(bronzeShortSwordWeight);
-                display();
-
-            }
-            else if(b==3){
-                //long
-                setSwordDamage(bronzeLongSwordDamage);
-                setSwordBlockPower(bronzeLongSwordBlockPower);
-                setSwordRange(bronzeLongSwordRange);
-                setSwordValue(bronzeLongSwordValue);
-                setSwordWeight(bronzeLongSwordWeight);
-                display();
-
-            }
-
-        }
-        else if(a==3){
-            //steel
-            if(b==1){
-                //dagger
-                setSwordDamage(steelDaggerDamage);
-                setSwordBlockPower(steelDaggerBlockPower);
-                setSwordRange(steelDaggerRange);
-                setSwordValue(steelDaggerValue);
-                setSwordWeight(steelDaggerWeight);
-                display();
-
-            }
-            else if(b==2){
-                //short
-                setSwordDamage(steelShortSwordDamage);
-                setSwordBlockPower(steelShortSwordBlockPower);
-                setSwordRange(steelShortSwordRange);
-                setSwordValue(steelShortSwordValue);
-                setSwordWeight(steelShortSwordWeight);
-                display();
-
-            }
-            else if(b==3){
-                //long
-                setSwordDamage(steelLongSwordDamage);
-                setSwordBlockPower(steelLongSwordBlockPower);
-                setSwordRange(steelLongSwordRange);
-                setSwordValue(steelLongSwordValue);
-                setSwordWeight(steelLongSwordWeight);
-                display();
-
-            }
-
-        }
-
-    }
-    public void usingBow(int a){
+    public String usingWeapon(int a){
         // 1 parametreli
 
         if(a==1){
@@ -228,6 +240,7 @@ public class CurrentItem implements ItemStats{
             setBowRange(shortBowRange);
             setBowValue(shortBowValue);
             setBowWeight(shortBowWeight);
+            return shortBow;
 
         }
         else if(a==2){
@@ -236,6 +249,7 @@ public class CurrentItem implements ItemStats{
             setBowRange(longBowRange);
             setBowValue(longBowValue);
             setBowWeight(longBowWeight);
+            return longBow;
 
         }
         else if(a==3){
@@ -244,11 +258,14 @@ public class CurrentItem implements ItemStats{
             setBowRange(compositeBowRange);
             setBowValue(compositeBowValue);
             setBowWeight(compositeBowWeight);
+            return compositeBow;
 
         }
+        else
+            return null;
 
     }
-    public void usingArmor(int a){
+    public String usingArmor(int a){
         // 1 parametreli
 
         if(a==1){
@@ -256,18 +273,25 @@ public class CurrentItem implements ItemStats{
             setArmorProtection(lightClothingProtection);
             setArmorValue(lightClothingValue);
             setArmorWeight(lightClothingWeight);
+            return lightClothing;
         }
         else if(a==2){
             //leather armor
             setArmorProtection(leatherArmorProtection);
             setArmorValue(leatherArmorValue);
             setArmorWeight(leatherArmorWeight);
+            return leatherArmor;
         }
         else if(a==3){
             //chain armor
             setArmorProtection(chainArmorProtection);
             setArmorValue(chainArmorValue);
             setArmorWeight(chainArmorWeight);
+            return chainArmor;
+        }
+        else{
+            System.out.println("enter valid please");
+            return null;
         }
 
     }
