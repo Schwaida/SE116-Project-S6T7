@@ -82,20 +82,20 @@ public class Characters {
 
         String comment;
 
-        if(hitPoint >= 2000) {
+        if(hitPoint >= 500) {
             comment = "It looks uninjured";
-        }else if(hitPoint <= 2000 && hitPoint >= 1000) {
+        }else if(hitPoint <= 200 && hitPoint >= 100) {
             comment = "It looks barely injured";
-        }else if(hitPoint<=1000 && hitPoint > 0 ) {
+        }else if(hitPoint<=100 && hitPoint > 0 ) {
             comment = "It looks near death";
         }else {
-            comment = "It looks death, will try to attack one last time!";
+            comment = "It looks death, " +name+" will try to attack one last time!";
         }
 
         if(hitPoint >0)
-            System.out.println(">> " + name.toUpperCase() + " || HP " + hitPoint + " || ATTACK " + strength + " [ " + comment + " ]");
+            System.out.println("--> " + name.toUpperCase() + " || HP " + hitPoint + " || ATTACK " + strength + " [ " + comment + " ]");
         else
-            System.out.println(">> " + name.toUpperCase() + " [ " + comment + " ]");
+            System.out.println("--> " + name.toUpperCase() + " [ " + comment + " ]");
     }
 
     public void setName(String name) {

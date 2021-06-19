@@ -1,14 +1,31 @@
 package SE116Project;
 
-public class CurrentItem implements ItemStats{
-    private int axeDamage,AxeWeight,axeBlockPower,AxeRange,AxeValue;
-    private int swordDamage,swordWeight,swordBlockPower,swordRange,swordValue;
-    private int bowDamage,bowWeight,bowRange,bowValue;
-    private int armorProtection,armorValue,armorWeight;
+public class CurrentItem implements ItemStats {
+    private int axeDamage, AxeWeight, axeBlockPower, AxeRange, AxeValue;
+    private int swordDamage, swordWeight, swordBlockPower, swordRange, swordValue;
+    private int bowDamage, bowWeight, bowRange, bowValue;
+    private int armorProtection, armorValue, armorWeight;
+    private String weaponName;
+    private String clothName;
+
+    public void setClothName(String clothName) {
+        this.clothName = clothName;
+    }
+
+    public String getClothName() {
+        return clothName;
+    }
+
+    public String getWeaponName() {
+        return weaponName;
+    }
+
+    public void setWeaponName(String weaponName) {
+        this.weaponName = String.valueOf(weaponName);
+    }
 
 
-
-    public String usingWeapon(int a,int b,int c) {
+    public String usingWeapon(int a, int b, int c) {
         // 3 parametreli
 
         if (a == 1) {
@@ -25,6 +42,7 @@ public class CurrentItem implements ItemStats{
                     setAxeValue(ironSmallAxeValue);
                     setAxeWeight(ironSmallAxeWeight);
                     display();
+                    weaponName = "iron small axe";
                     return ironSmallAxe;
 
                 } else if (c == 2) {
@@ -35,6 +53,7 @@ public class CurrentItem implements ItemStats{
                     setAxeValue(ironAxeValue);
                     setAxeWeight(ironAxeWeight);
                     display();
+                    weaponName = "iron axe";
                     return ironAxe;
 
                 } else if (c == 3) {
@@ -45,6 +64,7 @@ public class CurrentItem implements ItemStats{
                     setAxeValue(ironBroadAxeValue);
                     setAxeWeight(ironBroadAxeWeight);
                     display();
+                    weaponName = "iron broad axe";
                     return ironBroadAxe;
                 }
 
@@ -115,12 +135,11 @@ public class CurrentItem implements ItemStats{
                 }
             }
 
-        }
-        else if (a == 2) {
-           //sword
+        } else if (a == 2) {
+            //sword
 
 
-            if (b== 1) {
+            if (b == 1) {
                 //iron
 
                 if (c == 1) {
@@ -228,13 +247,14 @@ public class CurrentItem implements ItemStats{
         }
 
 
-            return null;
+        return null;
 
     }
-    public String usingWeapon(int a){
+
+    public String usingWeapon(int a) {
         // 1 parametreli
 
-        if(a==1){
+        if (a == 1) {
             //short
             setBowDamage(shortBowDamage);
             setBowRange(shortBowRange);
@@ -242,8 +262,7 @@ public class CurrentItem implements ItemStats{
             setBowWeight(shortBowWeight);
             return shortBow;
 
-        }
-        else if(a==2){
+        } else if (a == 2) {
             //long
             setBowDamage(longBowDamage);
             setBowRange(longBowRange);
@@ -251,8 +270,7 @@ public class CurrentItem implements ItemStats{
             setBowWeight(longBowWeight);
             return longBow;
 
-        }
-        else if(a==3){
+        } else if (a == 3) {
             //composite
             setBowDamage(compositeBowDamage);
             setBowRange(compositeBowRange);
@@ -260,36 +278,33 @@ public class CurrentItem implements ItemStats{
             setBowWeight(compositeBowWeight);
             return compositeBow;
 
-        }
-        else
+        } else
             return null;
 
     }
-    public String usingArmor(int a){
+
+    public String usingArmor(int a) {
         // 1 parametreli
 
-        if(a==1){
+        if (a == 1) {
             //light clothing
             setArmorProtection(lightClothingProtection);
             setArmorValue(lightClothingValue);
             setArmorWeight(lightClothingWeight);
             return lightClothing;
-        }
-        else if(a==2){
+        } else if (a == 2) {
             //leather armor
             setArmorProtection(leatherArmorProtection);
             setArmorValue(leatherArmorValue);
             setArmorWeight(leatherArmorWeight);
             return leatherArmor;
-        }
-        else if(a==3){
+        } else if (a == 3) {
             //chain armor
             setArmorProtection(chainArmorProtection);
             setArmorValue(chainArmorValue);
             setArmorWeight(chainArmorWeight);
             return chainArmor;
-        }
-        else{
+        } else {
             System.out.println("enter valid please");
             return null;
         }
@@ -335,7 +350,8 @@ public class CurrentItem implements ItemStats{
     public void setAxeWeight(int axeWeight) {
         AxeWeight = axeWeight;
     }
-    public void display(){
+
+    public void display() {
 
     }
 
@@ -410,6 +426,7 @@ public class CurrentItem implements ItemStats{
     public void setBowValue(int bowValue) {
         this.bowValue = bowValue;
     }
+
     public int getArmorProtection() {
         return armorProtection;
     }
@@ -433,5 +450,4 @@ public class CurrentItem implements ItemStats{
     public void setArmorWeight(int armorWeight) {
         this.armorWeight = armorWeight;
     }
-
 }

@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Game implements ItemStats {
+public class Game implements ItemStats{
     public static String playerInput;
     public static Scanner scanner;
     public static Hero hero;
     public static ArrayList<String> inventory = new ArrayList<>();
+    public static int a=0;
 
 
     public static void command(Hero hero) {
@@ -32,22 +33,25 @@ public class Game implements ItemStats {
             case "east":
                 Map.moveDirection(currentRoomX, currentRoomY+1);
                 showRoom(Map.currentRoom, lastRoom, "east");
+                System.out.println("Choose your next room");
                 showRoad(Map.currentRoom);
                 break;
             case "west":
                 Map.moveDirection(currentRoomX, currentRoomY-1);
                 showRoom(Map.currentRoom, lastRoom, "west");
+                System.out.println("Choose your next room");
                 showRoad(Map.currentRoom);
                 break;
             case "north":
                 Map.moveDirection(currentRoomX-1, currentRoomY);
                 showRoom(Map.currentRoom, lastRoom, "north");
+                System.out.println("Choose your next room");
                 showRoad(Map.currentRoom);
                 break;
             case "south":
                 Map.moveDirection(currentRoomX+1, currentRoomY);
                 showRoom(Map.currentRoom, lastRoom, "south");
-                System.out.println("Choose your next room to continue..");
+                System.out.println("Choose your next room");
                 showRoad(Map.currentRoom);
                 break;
             case "road":
@@ -61,7 +65,7 @@ public class Game implements ItemStats {
                 break;*/
 
             default:
-                System.out.println("Command not recognized! Check info");
+                System.out.println("Invalid input, Please check info");
                 break;
         }
 
@@ -72,15 +76,35 @@ public class Game implements ItemStats {
 
                 System.out.println("You head off to  " + currentRoom.getRoomName() + "  in the " + direction);
                 System.out.println(currentRoom.getDefinition());
+                if(currentRoom.isStairRoom()){
+                    levels(currentRoom);
+                    startGame();
+                }
 
                 if(currentRoom.getTownPeoples()!= null && !currentRoom.getTownPeoples().isEmpty()) {
-                    System.out.println("There is "+ currentRoom.getTownPeoples().size()+" Townspeople in this room.");
+                    System.out.println("There are "+ currentRoom.getTownPeoples().size()+" Townspeople in this room.");
+
+
+
+                        if (currentRoom.getTownPeoples().get(0).isHealer()) {
+
+                            System.out.println("One of the townspeople is healer in this room");
+
+
+                        } else {
+                            System.out.println("There is no healer in this room");
+                        }
+
                 }
 
 
                 if(currentRoom.getMonsters() != null && !currentRoom.getMonsters().isEmpty()) {
-
-                    printAttacks(currentRoom);
+                    System.out.println();
+                    System.out.println("There are "+ currentRoom.getMonsters().size()+" monsters in this room.");
+                    for (int i=0;i<currentRoom.getMonsters().size();i++){
+                        printAttacks(currentRoom);
+                    }
+                   // printAttacks(currentRoom);
 
                 }
             }
@@ -149,74 +173,100 @@ public class Game implements ItemStats {
     }
 
     public static void printAttacks(Rooms currentRoom) {
-        boolean dead = false;
-        int i =-1;
+
+        int i = -1;
         i++;
 
+        Monsters monster = currentRoom.getMonsters().get(i);
+        System.out.println("There is a " + monster.getName() + " ! Look out!");
 
-            Monsters monster = currentRoom.getMonsters().get(i);
-            System.out.println("There is a " + monster.getName() + " ! Look out!");
-            boolean loop = true;
-            int input;
-            Scanner cl = new Scanner(System.in);
-            boolean escape = false;
-
-
+        // System.out.println("There is a " + monster.getName() + " ! Look out!");
+        boolean looping = true;
+        int input=0;
+        Scanner cl = new Scanner(System.in);
+        boolean escape = false;
 
        /*Monsters monster = currentRoom.getMonsters().get(0);
-        System.out.println("There is a "+monster.getName()+" ! Look out!");
-
-         // Choose attacking or escape
-
-        boolean loop = true;
-        int input;
-        Scanner cl = new Scanner(System.in);
-        boolean escape = false;*/
-
-            /*
-             * get first monster!
-             */
-
-
-            do {
-                System.out.println("You want : (1) Attack" + monster.getName() + " (2) Go another room ");
-                input = cl.nextInt();
-                if (input == 1) {
-                    loop = false;
-                } else if (input == 2) {
-                    System.out.println("You left the room before the monster saw you");
-                    escape = true;
-                    break;
-
-                } else {
-                    System.out.println("Please choose a valid option! ");
-                }
-
-            } while (loop);
-
-            if (!escape) {
-                System.out.println("Start attacking " + monster.getName());
-
-                while (!monster.isDead() && !hero.isDead()) { //Problem around here
-                    launchAttacks(hero, monster);
-                    if (monster.isDead()) {
-                        currentRoom.deleteMonsters(monster);
-                        System.out.println(monster.getName()+ " died...");
-                        System.out.println("You picked up all inventory of " + monster.getName() + "  - Check your inventory now!");
-                        break;
-                    } else if (hero.isDead()) {// ölme olayı burada oluyor
-                        System.out.println("You died.... Game over :( ");
-                        dead = true;
-                        System.exit(0);
-                        break;
-                    }
-                }
-                launchAttacks(monster, hero);
-            } else {
-                System.out.println("You succeeded to escape from the monster but it seems you forgot to save Town People!");
+        System.out.println("There is a "+monster.getName()+" ! Look out!");*/
+        do {
+            System.out.println("What are you going to do : (1) Attack" + monster.getName() + " (2) Run ");
+            try {
+                input = scanner.nextInt();
+                scanner.nextLine();
+            } catch (InputMismatchException e) {
+                scanner.next();
             }
 
+            if (input == 1) {
+                looping = false;
+            } else if (input == 2) {
+                System.out.println("Lucky you, you managed to reach the doors before the monster see you");
+                System.out.println();
+                looping = false;
+                escape =true;
+
+
+            } else {
+                System.out.println("Please choose one option! ");
+            }
+
+        } while (looping);
+
+        if (!escape) {
+
+                System.out.println("Start attacking " + monster.getName());
+
+
+            while (!monster.isDead() && !hero.isDead()) {
+                //Problem around here
+
+                launchAttacks(hero, monster);
+                if (monster.isDead()) {
+                    currentRoom.deleteMonsters(monster);
+                    System.out.println(monster.getName() + " died...");
+                    System.out.println("You picked up all inventory of " + monster.getName() + "  - Check your inventory now!");
+                    if(currentRoom.getMonsters().size()>0){
+                            printAttacks(currentRoom);
+                    }
+                } else if (hero.isDead()) {// ölme olayı burada oluyor
+                    System.out.println("You died.... Game over :( ");
+                    System.exit(0);
+                    break;
+                }
+            }
+            launchAttacks(monster, hero);
+
+            if(currentRoom.getMonsters().size()<=0){
+                System.out.println("All monster died in "+ currentRoom.getRoomName());
+                if(currentRoom.getMonsters().isEmpty()&&currentRoom.getTownPeoples().size()>0) {
+                    int savedTownsPeopleCount =0;
+                    savedTownsPeopleCount+=currentRoom.getTownPeoples().size();
+
+                    System.out.println("You saved " + savedTownsPeopleCount + " townspeople");
+                }
+                for(int i1=0;i1<currentRoom.getTownPeoples().size();i1++){
+                    if(currentRoom.getTownPeoples().get(i1).isHealer()){
+                        System.out.println("There is a healer in this room. Would you like to heal "+currentRoom.getTownPeoples().get(0).getHeal()+ "HP?(1)yes(2)no");
+                        int input2 = scanner.nextInt();
+
+                        if(input2==1){
+                            hero.setHitPoint(hero.getHitPoint()+currentRoom.getTownPeoples().get(i1).getHeal());
+                        }
+                        else{
+                            System.out.println("No healing used!");
+                        }
+
+                    }
+               }
+            }
+        } else {
+            System.out.println("You succeeded to escape from the monster but it seems you forgot to save Towns People!");
         }
+    }
+
+
+
+
 
 
 
@@ -232,8 +282,47 @@ public class Game implements ItemStats {
 
     }
 
+    public static void levels(Rooms currentRoom){
+
+        int levelChoice;
+        if(currentRoom.isStairRoom()){
+            if(a==1){
+                System.out.println("You want to go upper (1) level?");
+                levelChoice=scanner.nextInt();
+                scanner.nextLine();
+                if(levelChoice==1){
+                    a++;
+                    startGame();
+                }
+            }
+            else if(a==16){
+                System.out.println("You want to go lower (2) level?");
+                levelChoice=scanner.nextInt();
+                scanner.nextLine();
+                if(levelChoice==2){
+                    a--;
+                    startGame();
+                }
+            }
+            else {
+
+                System.out.println("You want to go upper (1) level or lower (2) ?");
+                levelChoice = scanner.nextInt();
+                scanner.nextLine();
+                if (levelChoice == 1) {
+                    a++;
+                    startGame();
+                } else if (levelChoice == 2) {
+                    a=a-3;
+                    startGame();
+                }
+            }
+        }
+    }
+
     public static void status(Hero hero) {
         Items items =new Items();
+
         System.out.println("NAME : " + hero.getName());
         System.out.println("HP : " + hero.getHitPoint());
         System.out.println("CURRENT CLOTH: "+items.usingArmor(1));
@@ -248,148 +337,19 @@ public class Game implements ItemStats {
         //ArrayList<Clothes> clothes = new ArrayList<Clothes>();
 
         System.out.println("********************** WELCOME TO HERO OF THE DUNGEON **********************");
-        System.out.println("    _                         ");
-        System.out.println("  _| |_ _ ___ ___ ___ ___ ___ ");
-        System.out.println(" | . | | |   | . | -_| . |   |");
-        System.out.println(" |___|___|_|_|_  |___|___|_|_|");
-        System.out.println("             |___|            ");
+        System.out.println("**                                                                        **");
+        System.out.println("**       SE-116 Project Group 7                                           **");
+        System.out.println("**                                                                        **");
+        System.out.println("**                                ® All Right Reserved.                   **");
+        System.out.println("**                                                                        **");
+        System.out.println("****************************************************************************");
+
         System.out.println("New Game = 1, Credits = 2");
         boolean loop = true;
         int input = 0;
         scanner=new Scanner(System.in);
-        int currentWeight=0;
-        int maxWeight=30;
-      /*  while(-1 < currentWeight && currentWeight <= maxWeight) {
-            WeightSystem System = new WeightSystem();
-            if (System.ironSmallAxeTaken) {
-                currentWeight += ironSmallAxeWeight;
-            }
-            if (System.ironSmallAxeDropped) {
-                currentWeight -= ironSmallAxeWeight;
-            }
-            if (System.ironAxeTaken) {
-                currentWeight += ironAxeWeight;
-            }
-            if (System.ironAxeDropped) {
-                currentWeight -= ironAxeWeight;
-            }
-            if (System.ironBroadAxeTaken) {
-                currentWeight += ironBroadAxeWeight;
-            }
-            if (System.ironBroadAxeDropped) {
-                currentWeight -= ironBroadAxeWeight;
-            }
-            if (System.bronzeSmallAxeTaken) {
-                currentWeight += bronzeSmallAxeWeight;
-            }
-            if (System.bronzeSmallAxeDropped) {
-                currentWeight -= bronzeSmallAxeWeight;
-            }
-            if (System.bronzeAxeTaken) {
-                currentWeight += bronzeAxeWeight;
-            }
-            if (System.bronzeAxeDropped) {
-                currentWeight -= bronzeAxeWeight;
-            }
-            if (System.bronzeBroadAxeTaken) {
-                currentWeight += bronzeBroadAxeWeight;
-            }
-            if (System.bronzeBroadAxeDropped) {
-                currentWeight -= bronzeBroadAxeWeight;
-            }
-            if (System.steelSmallAxeTaken) {
-                currentWeight += steelSmallAxeWeight;
-            }
-            if (System.steelSmallAxeDropped) {
-                currentWeight -= steelSmallAxeWeight;
-            }
-            if (System.steelAxeTaken) {
-                currentWeight += steelAxeWeight;
-            }
-            if (System.steelAxeDropped) {
-                currentWeight -= steelAxeWeight;
-            }
-            if (System.steelBroadAxeTaken) {
-                currentWeight += steelBroadAxeWeight;
-            }
-            if (System.steelBroadAxeDropped) {
-                currentWeight -= steelBroadAxeWeight;
-            }
 
-            if (System.ironDaggerTaken) {
-                currentWeight += ironDaggerWeight;
-            }
-            if (System.ironDaggerDropped) {
-                currentWeight -= ironDaggerWeight;
-            }
-            if (System.ironShortSwordTaken) {
-                currentWeight += ironShortSwordWeight;
-            }
-            if (System.ironShortSwordDropped) {
-                currentWeight -= ironShortSwordWeight;
-            }
-            if (System.ironLongSwordTaken) {
-                currentWeight += ironLongSwordWeight;
-            }
-            if (System.ironLongSwordDropped) {
-                currentWeight -= ironLongSwordWeight;
-            }
-            if (System.bronzeDaggerTaken) {
-                currentWeight += bronzeDaggerWeight;
-            }
-            if (System.bronzeDaggerDropped) {
-                currentWeight -= bronzeDaggerWeight;
-            }
-            if (System.bronzeShortSwordTaken) {
-                currentWeight += bronzeShortSwordWeight;
-            }
-            if (System.bronzeShortSwordDropped) {
-                currentWeight -= bronzeShortSwordWeight;
-            }
-            if (System.bronzeLongSwordTaken) {
-                currentWeight += bronzeLongSwordWeight;
-            }
-            if (System.bronzeLongSwordDropped) {
-                currentWeight -= bronzeLongSwordWeight;
-            }
-            if (System.steelDaggerTaken) {
-                currentWeight += steelDaggerWeight;
-            }
-            if (System.steelDaggerDropped) {
-                currentWeight -= steelDaggerWeight;
-            }
-            if (System.steelShortSwordTaken) {
-                currentWeight += steelShortSwordWeight;
-            }
-            if (System.steelShortSwordDropped) {
-                currentWeight -= steelShortSwordWeight;
-            }
-            if (System.steelLongSwordTaken) {
-                currentWeight += steelLongSwordWeight;
-            }
-            if (System.steelLongSwordDropped) {
-                currentWeight -= steelLongSwordWeight;
-            }
 
-            if (System.shortBowTaken){
-                currentWeight += shortBowWeight;
-            }
-            if (System.shortBowDropped){
-                currentWeight -= shortBowWeight;
-            }
-            if (System.longBowTaken){
-                currentWeight += longBowWeight;
-            }
-            if (System.longBowDropped){
-                currentWeight -= longBowWeight;
-            }
-            if (System.compositeBowTaken){
-                currentWeight += compositeBowWeight;
-            }
-            if (System.compositeBowDropped){
-                currentWeight -= compositeBowWeight;
-            }
-        }*/
         while (loop) {
             try {
                 input = scanner.nextInt();
@@ -400,8 +360,32 @@ public class Game implements ItemStats {
             }
 
             if (input == 1) {
+               CurrentItem currentItem= new CurrentItem();
+                hero = new Hero(playerInput);
+                System.out.println("Enter your name: ");
+                String heroName = scanner.nextLine();
+                hero.setName(heroName);
+        /*System.out.println("Enter your gender:");
+        String genderChosen= scanner.nextLine();
 
+        System.out.println("Your gender is: "+genderChosen);*/
+
+
+                System.out.println("Ahh... I see, " + hero.getName() + " the brave hero!");
+                System.out.println("As a welcoming gift here is your cloth and weapon, check inventory");
+                inventory.add(0,"light clothing");
+                inventory.add(1,"dagger");
+
+
+
+                System.out.println("You are in front of the dungeon gate");
+                System.out.println("Type 'info' for further info");
+
+                playerInput = scanner.nextLine();
+                if(!hero.isDead()){
                     startGame();
+                }
+
 
 
                     loop = false;
@@ -422,8 +406,10 @@ public class Game implements ItemStats {
 
 
     public static void startGame() {
-        CurrentItem currentItem= new CurrentItem();
 
+        a++;
+
+        /*CurrentItem currentItem= new CurrentItem();
         hero = new Hero(playerInput);
         System.out.println("Enter your name: ");
         String heroName = scanner.nextLine();
@@ -434,7 +420,7 @@ public class Game implements ItemStats {
         System.out.println("Your gender is: "+genderChosen);*/
 
 
-        System.out.println("Ahh... I see, " + hero.getName() + " the brave hero!");
+       /* System.out.println("Ahh... I see, " + hero.getName() + " the brave hero!");
         System.out.println("As a welcoming gift here is your cloth and weapon, check inventory");
         inventory.add(0,"light clothing");
         inventory.add(1,"dagger");
@@ -444,9 +430,42 @@ public class Game implements ItemStats {
         System.out.println("You are in front of the dungeon gate");
         System.out.println("Type 'info' for further info");
 
-        playerInput = scanner.nextLine();
+        playerInput = scanner.nextLine();*/
 
-        directions();
+
+        Level.Levels(a);
+       // levels(Map.currentRoom);
+
+
+
+           /* int a =1;
+            Level.Levels(a);
+            int levelChoice;
+
+            if(Map.currentRoom.isStairRoom()){
+                if(a==1){
+                    System.out.println("You want to go upper(1) level?");
+                    levelChoice=scanner.nextInt();
+                    scanner.nextLine();
+                    if(levelChoice==1){
+                        a++;
+                        //Level.Levels(a);
+                    }
+                }
+                else {
+
+                    System.out.println("You want to go upper(1)level or lower(2)?");
+                    levelChoice = scanner.nextInt();
+                    scanner.nextLine();
+                    if (levelChoice == 1) {
+                        a++;
+                       // Level.Levels(a);
+                    } else if (levelChoice == 2) {
+                        a--;
+                    }
+                }
+            }*/
+
 
         while (!playerInput.equals("quit")){
             command(hero);
@@ -456,8 +475,6 @@ public class Game implements ItemStats {
 
         }
     public static void directions() {
-
-
 
         Rooms[][] maze = new Rooms[5][5];
 
@@ -477,24 +494,27 @@ public class Game implements ItemStats {
         Map.currentRoom = maze[0][1];
 
         Monsters dwarf = new Monsters("Dwarf",200,1,40);
+        Monsters dwarf1 = new Monsters("Dwarf",200,1,40);
         Monsters goblin = new Monsters("Goblin",120,0.4,60);
         Monsters elf =new Monsters("Elf",30,0.1,10);
         Monsters skeleton =new Monsters("Skeletons",80,0.2,23);
         Monsters zombie =new Monsters("Zombie",150,0.6,30);
         Monsters vampire =new Monsters("Vampire",400,1.5,100);
-        TownPeople healer= new TownPeople("Healer",true);
+        TownPeople healer= new TownPeople("Healer",100,true);
         TownPeople townPeople= new TownPeople("Town People",false);
+        TownPeople townPeople1= new TownPeople("Town People",false);
+        TownPeople townPeople2= new TownPeople("Town People",false);
+        TownPeople townPeople3= new TownPeople("Town People",false);
         Map.getRoom(1,1).settingMonsters(dwarf);
         Map.getRoom(2,2).settingMonsters(goblin);
         Map.getRoom(1,1).settingMonsters(elf);
         Map.getRoom(1,1).settingTownsPeople(healer);
         Map.getRoom(2,2).settingTownsPeople(townPeople);
-        Map.getRoom(1,0).settingMonsters(dwarf);
+        Map.getRoom(1,0).settingMonsters(dwarf1);
         Map.getRoom(1,2).settingMonsters(zombie);
         Map.getRoom(2,3).settingMonsters(vampire);
-        Map.getRoom(3,3).settingMonsters(skeleton);
-
-
+        Map.getRoom(2,3).settingMonsters(skeleton);
+        Map.getRoom(1,2).settingTownsPeople(townPeople);
 
 
     }
@@ -510,7 +530,7 @@ public class Game implements ItemStats {
         return dungeon;
     }*/
 
-        private static void credits () {
+        public static void credits () {
             System.out.println("Egemen Akgüner");
             System.out.println("Uzay Kayra Çetinkaya");
             System.out.println("Busegül Özkaya");

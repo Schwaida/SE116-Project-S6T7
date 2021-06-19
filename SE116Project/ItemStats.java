@@ -1,6 +1,6 @@
 package SE116Project;
 
-public interface ItemStats {
+public interface ItemStats{
     //Axe Types &  Stats//
     //Small Axe , Axe , Broad Axe//
     //Material types//

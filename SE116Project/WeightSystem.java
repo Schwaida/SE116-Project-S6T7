@@ -22,7 +22,6 @@ public class WeightSystem {
     boolean shortBowTaken = false;
     boolean longBowTaken = false;
     boolean compositeBowTaken = false;
-
     boolean ironSmallAxeDropped = false;
     boolean ironAxeDropped = false;
     boolean ironBroadAxeDropped = false;

@@ -3,21 +3,31 @@ package SE116Project;
 import java.util.ArrayList;
 
 public class Rooms {
-    private Coordinates roomCoordinates;
+    private Coordinates coordinates;
     private ArrayList<Monsters> monsters;
     private ArrayList<TownPeople> townPeoples;
     private String roomName;
     private String definition;
+    private boolean stairRoom;
 
     public Rooms(String roomName, String definition, Coordinates coordinates) {
         this(roomName, definition, coordinates, new ArrayList<Monsters>(),new ArrayList<TownPeople>());
+    }
+   public Rooms(String roomName, String definition, Coordinates coordinates,boolean stairRoom) {
+        this.roomName=roomName;
+        this.definition=definition;
+        this.coordinates=coordinates;
+        this.stairRoom=stairRoom;
+        this.townPeoples=new ArrayList<TownPeople>();
+        this.monsters=new ArrayList<Monsters>();
+
     }
 
     public Rooms(String roomName, String definition, Coordinates coordinates, ArrayList<Monsters> monsters,ArrayList<TownPeople> townPeoples) {
         super();
         this.roomName = roomName;
         this.definition = definition;
-        this.roomCoordinates = coordinates;
+        this.coordinates = coordinates;
         this.monsters = monsters;
         this.townPeoples=townPeoples;
     }
@@ -40,11 +50,11 @@ public class Rooms {
     }
 
     public Coordinates getRoomCoordinates() {
-        return roomCoordinates;
+        return coordinates;
     }
 
     public void setRoomCoordinates(Coordinates coordinates) {
-        this.roomCoordinates = coordinates;
+        this.coordinates = coordinates;
     }
 
 
@@ -80,5 +90,13 @@ public class Rooms {
 
     public void deleteTownsPeople(TownPeople townPeople) {
         townPeoples.remove(townPeople);
+    }
+
+    public boolean isStairRoom() {
+        return stairRoom;
+    }
+
+    public void setStairRoom(boolean stairRoom) {
+        this.stairRoom = stairRoom;
     }
 }
