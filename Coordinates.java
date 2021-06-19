@@ -1,4 +1,4 @@
-package SE116Project;
+package NewOne;
 
 public class Coordinates {
 

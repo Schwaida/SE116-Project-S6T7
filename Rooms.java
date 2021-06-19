@@ -1,26 +1,89 @@
-package SE116Project;
+package NewOne;
+
+import Try.Room;
 
 import java.util.ArrayList;
 
 public class Rooms {
     private Coordinates roomCoordinates;
+    private ArrayList<Hero> heroes;
     private ArrayList<Monsters> monsters;
     private ArrayList<TownPeople> townPeoples;
     private String roomName;
     private String definition;
+    private String weaponName;
+    private String droppedInfo;
+    private boolean stairRoom;
 
-    public Rooms(String roomName, String definition, Coordinates coordinates) {
-        this(roomName, definition, coordinates, new ArrayList<Monsters>(),new ArrayList<TownPeople>());
+    public void setDroppedInfo(String droppedInfo) {
+        this.droppedInfo = droppedInfo;
     }
 
-    public Rooms(String roomName, String definition, Coordinates coordinates, ArrayList<Monsters> monsters,ArrayList<TownPeople> townPeoples) {
+    public String getDroppedInfo() {
+        return droppedInfo;
+    }
+
+    public String getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
+    }
+
+    private static ArrayList<String> droppedItem;
+
+    public static ArrayList<String> getDroppedItem() {
+
+        return droppedItem;
+    }
+
+    public static void setDroppedItem(ArrayList<String> droppedItem) {
+        Rooms.droppedItem = droppedItem;
+    }
+
+    public Rooms() {
+
+    }
+
+
+
+    public void setWeaponName(String weaponName) {
+        this.weaponName = weaponName;
+    }
+
+    public String getWeaponName() {
+        return weaponName;
+    }
+
+    public Rooms(String roomName, String definition, Coordinates coordinates) {
+        this(roomName, definition, coordinates,new ArrayList<Hero>(), new ArrayList<Monsters>(),new ArrayList<TownPeople>());
+    }
+    /*public Rooms(String roomName,String definition,Coordinates coordinates){
+        this(roomName,definition,coordinates,true);
+    }*/
+
+    public Rooms(String roomName, String definition, Coordinates coordinates,ArrayList<Hero> heroes ,ArrayList<Monsters> monsters,ArrayList<TownPeople> townPeoples) {
         super();
         this.roomName = roomName;
         this.definition = definition;
         this.roomCoordinates = coordinates;
+        this.heroes = heroes;
         this.monsters = monsters;
         this.townPeoples=townPeoples;
+        droppedItem = new ArrayList<>();
     }
+    public Rooms(String roomName,String definition,Coordinates coordinates,boolean stairRoom){
+        this.roomName=roomName;
+        this.definition=definition;
+        this.roomCoordinates=coordinates;
+        this.stairRoom =stairRoom;
+        this.heroes = new ArrayList<Hero>();
+        this.monsters = new ArrayList<Monsters>();
+        this.townPeoples = new ArrayList<TownPeople>();
+        droppedItem = new ArrayList<>();
+    }
+
 
 
     public String getRoomName() {
@@ -31,13 +94,7 @@ public class Rooms {
         this.roomName = roomName;
     }
 
-    public String getDefinition() {
-        return definition;
-    }
 
-    public void setDefinition(String definition) {
-        this.definition = definition;
-    }
 
     public Coordinates getRoomCoordinates() {
         return roomCoordinates;
@@ -52,6 +109,13 @@ public class Rooms {
         this.monsters = monsters;
     }
 
+    public ArrayList<Hero> getHeroes() {
+        return heroes;
+    }
+
+    public void setHeroes(ArrayList<Hero> heroes) {
+        this.heroes = heroes;
+    }
 
     public ArrayList<Monsters> getMonsters() {
         return monsters;
@@ -80,5 +144,13 @@ public class Rooms {
 
     public void deleteTownsPeople(TownPeople townPeople) {
         townPeoples.remove(townPeople);
+    }
+
+    public boolean isStairRoom() {
+        return stairRoom;
+    }
+
+    public void setStairRoom(boolean stairRoom) {
+        this.stairRoom = stairRoom;
     }
 }

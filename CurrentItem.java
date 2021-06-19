@@ -1,14 +1,31 @@
-package SE116Project;
+package NewOne;
 
 public class CurrentItem implements ItemStats{
     private int axeDamage,AxeWeight,axeBlockPower,AxeRange,AxeValue;
     private int swordDamage,swordWeight,swordBlockPower,swordRange,swordValue;
     private int bowDamage,bowWeight,bowRange,bowValue;
     private int armorProtection,armorValue,armorWeight;
+    private String weaponName;
+    private String clothName;
+
+    public void setClothName(String clothName) {
+        this.clothName = clothName;
+    }
+
+    public String getClothName() {
+        return clothName;
+    }
+
+    public String getWeaponName() {
+        return weaponName;
+    }
+
+    public void setWeaponName(String weaponName) {
+        this.weaponName = String.valueOf(weaponName);
+    }
 
 
-
-    public String usingWeapon(int a,int b,int c) {
+    public String usingWeapon(int a, int b, int c) {
         // 3 parametreli
 
         if (a == 1) {
@@ -25,6 +42,7 @@ public class CurrentItem implements ItemStats{
                     setAxeValue(ironSmallAxeValue);
                     setAxeWeight(ironSmallAxeWeight);
                     display();
+                    weaponName="iron small axe";
                     return ironSmallAxe;
 
                 } else if (c == 2) {
@@ -35,6 +53,7 @@ public class CurrentItem implements ItemStats{
                     setAxeValue(ironAxeValue);
                     setAxeWeight(ironAxeWeight);
                     display();
+                    weaponName="iron axe";
                     return ironAxe;
 
                 } else if (c == 3) {
@@ -45,6 +64,7 @@ public class CurrentItem implements ItemStats{
                     setAxeValue(ironBroadAxeValue);
                     setAxeWeight(ironBroadAxeWeight);
                     display();
+                    weaponName="iron broad axe";
                     return ironBroadAxe;
                 }
 

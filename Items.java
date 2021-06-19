@@ -1,4 +1,4 @@
-package SE116Project;
+package NewOne;
 
 import java.util.Random;
 
@@ -22,6 +22,8 @@ public class Items extends CurrentItem {
         this.weight=weight;
         this.value= value;
     }
+
+
 
     public void setWeaponName(String weaponName) {
         WeaponName = weaponName;

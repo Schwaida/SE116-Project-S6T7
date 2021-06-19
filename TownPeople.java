@@ -1,8 +1,8 @@
-package SE116Project;
+package NewOne;
 
 public class TownPeople extends Characters{
-private int heal;
-private boolean healer;
+    private int heal;
+    private boolean healer;
 
     public TownPeople(String name, int heal,boolean healer) {
         super(name);
