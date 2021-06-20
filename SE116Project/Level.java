@@ -6,22 +6,22 @@ public class Level {
 
         if (a == 1) {
             System.out.println("Welcome to level 1");
-            Rooms[][] maze = new Rooms[5][5];
+            Rooms[][] dungeon = new Rooms[5][5];
 
-            maze[0][1] = new Rooms("Room 1","Level 1 room 1",new Coordinates(0,1),false);
-            maze[1][1] = new Rooms("Room 3","Level 1 room 3",new Coordinates(1,1),false);
-            maze[1][0] = new Rooms("Room 2","Level 1 room 2",new Coordinates(1,0),false);
-            maze[1][2] = new Rooms("Room 4","Level 1 room 4",new Coordinates(1,2),false);
-            maze[2][2] = new Rooms("Room 5","Level 1 room 5",new Coordinates(2,2),false);
-            maze[2][3] = new Rooms("Room 6","Level 1 room 6",new Coordinates(2,3),false);
-            maze[3][3] = new Rooms("Room 7","Level 1 room 7",new Coordinates(3,3),false);
-            maze[4][3] = new Rooms("Room 10","Level 1 room 10",new Coordinates(4,3),false);
-            maze[4][2] = new Rooms("Room 9","Level 1 room 9",new Coordinates(4,2),false);
-            maze[4][1] = new Rooms("Room 8(stair room)","Stair room",new Coordinates(4,1),true);
+            dungeon[0][1] = new Rooms("Room 1","Level 1 room 1",new Coordinates(0,1),false);
+            dungeon[1][1] = new Rooms("Room 3","Level 1 room 3",new Coordinates(1,1),false);
+            dungeon[1][0] = new Rooms("Room 2","Level 1 room 2",new Coordinates(1,0),false);
+            dungeon[1][2] = new Rooms("Room 4","Level 1 room 4",new Coordinates(1,2),false);
+            dungeon[2][2] = new Rooms("Room 5","Level 1 room 5",new Coordinates(2,2),false);
+            dungeon[2][3] = new Rooms("Room 6","Level 1 room 6",new Coordinates(2,3),false);
+            dungeon[3][3] = new Rooms("Room 7","Level 1 room 7",new Coordinates(3,3),false);
+            dungeon[4][3] = new Rooms("Room 10","Level 1 room 10",new Coordinates(4,3),false);
+            dungeon[4][2] = new Rooms("Room 9","Level 1 room 9",new Coordinates(4,2),false);
+            dungeon[4][1] = new Rooms("Room 8(stair room)","Stair room",new Coordinates(4,1),true);
 
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][1];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][1];
 
             Monsters dwarf = new Monsters("Dwarf",200,1,40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(1,1,1));
@@ -59,21 +59,21 @@ public class Level {
 
         } else if (a == 3) {
             System.out.println("Welcome to level 2");
-            Rooms[][] maze = new Rooms[4][4];
+            Rooms[][] dungeon = new Rooms[4][4];
 
 
-            maze[0][0] = new Rooms("Room 1", "Level 2 room 1", new Coordinates(0, 0),false);
-            maze[0][1] = new Rooms("Room 2", "Level 2 room 2", new Coordinates(0, 1),false);
-            maze[1][1] = new Rooms("Room 3", "Level 2 room 3", new Coordinates(1, 1),false);
-            maze[2][1] = new Rooms("Room 4", "Level 2 room 4", new Coordinates(2, 1),false);
-            maze[3][1] = new Rooms("Room 5", "Level 2 room 5", new Coordinates(3, 1),false);
-            maze[1][2] = new Rooms("Room 6", "Level 2 room 6", new Coordinates(1, 2),false);
-            maze[1][3] = new Rooms("Room 7", "Level 2 room 7", new Coordinates(1, 3),false);
-            maze[2][3] = new Rooms("Room 8", "Level 2 room 8", new Coordinates(2, 3),false);
-            maze[3][3] = new Rooms("Room 9(stair room)", "Level 2 stair room", new Coordinates(3, 3),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 2 room 1", new Coordinates(0, 0),false);
+            dungeon[0][1] = new Rooms("Room 2", "Level 2 room 2", new Coordinates(0, 1),false);
+            dungeon[1][1] = new Rooms("Room 3", "Level 2 room 3", new Coordinates(1, 1),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 2 room 4", new Coordinates(2, 1),false);
+            dungeon[3][1] = new Rooms("Room 5", "Level 2 room 5", new Coordinates(3, 1),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 2 room 6", new Coordinates(1, 2),false);
+            dungeon[1][3] = new Rooms("Room 7", "Level 2 room 7", new Coordinates(1, 3),false);
+            dungeon[2][3] = new Rooms("Room 8", "Level 2 room 8", new Coordinates(2, 3),false);
+            dungeon[3][3] = new Rooms("Room 9(stair room)", "Level 2 stair room", new Coordinates(3, 3),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 200, 1, 40);
             Monsters goblin = new Monsters("Goblin", 120, 0.4, 60);
             goblin.addMonsterInventory(currentItem.usingWeapon(1));
@@ -99,22 +99,22 @@ public class Level {
 
         } else if (a == 5) {
             System.out.println("Welcome to level 3");
-            Rooms[][] maze = new Rooms[5][5];
+            Rooms[][] dungeon = new Rooms[5][5];
 
-            maze[0][1] = new Rooms("Room 1","Level 3 Room 1",new Coordinates(0,1),false);
-            maze[1][1] = new Rooms("Room 3","Level 3 room 3",new Coordinates(1,1),false);
-            maze[1][0] = new Rooms("Room 2","Level 3 room 2",new Coordinates(1,0),false);
-            maze[1][2] = new Rooms("Room 4","Level 3 room 4",new Coordinates(1,2),false);
-            maze[2][2] = new Rooms("Room 5","Level 3 room 5",new Coordinates(2,2),false);
-            maze[2][3] = new Rooms("Room 6","Level 3 room 6",new Coordinates(2,3),false);
-            maze[3][3] = new Rooms("Room 7","Level 3 room 7",new Coordinates(3,3),false);
-            maze[4][3] = new Rooms("Room 10","Level 3 room 10",new Coordinates(4,3),false);
-            maze[4][2] = new Rooms("Room 9","Level 3 room 9",new Coordinates(4,2),false);
-            maze[4][1] = new Rooms("Room 8(stair room)","Level 3 stair room",new Coordinates(4,1),true);
+            dungeon[0][1] = new Rooms("Room 1","Level 3 Room 1",new Coordinates(0,1),false);
+            dungeon[1][1] = new Rooms("Room 3","Level 3 room 3",new Coordinates(1,1),false);
+            dungeon[1][0] = new Rooms("Room 2","Level 3 room 2",new Coordinates(1,0),false);
+            dungeon[1][2] = new Rooms("Room 4","Level 3 room 4",new Coordinates(1,2),false);
+            dungeon[2][2] = new Rooms("Room 5","Level 3 room 5",new Coordinates(2,2),false);
+            dungeon[2][3] = new Rooms("Room 6","Level 3 room 6",new Coordinates(2,3),false);
+            dungeon[3][3] = new Rooms("Room 7","Level 3 room 7",new Coordinates(3,3),false);
+            dungeon[4][3] = new Rooms("Room 10","Level 3 room 10",new Coordinates(4,3),false);
+            dungeon[4][2] = new Rooms("Room 9","Level 3 room 9",new Coordinates(4,2),false);
+            dungeon[4][1] = new Rooms("Room 8(stair room)","Level 3 stair room",new Coordinates(4,1),true);
 
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][1];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][1];
 
             Monsters dwarf = new Monsters("Dwarf",200,1,40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(2,1,1));
@@ -142,21 +142,21 @@ public class Level {
             Map.getRoom(3,3).settingMonsters(vampire1);
         } else if (a == 7) {
             System.out.println("Welcome to level 4");
-            Rooms[][] maze = new Rooms[4][4];
+            Rooms[][] dungeon = new Rooms[4][4];
 
 
-            maze[0][0] = new Rooms("Room 1", "Level 4 room 1", new Coordinates(0, 0),false);
-            maze[0][1] = new Rooms("Room 2", "Level 4 room 2", new Coordinates(0, 1),false);
-            maze[1][1] = new Rooms("Room 3", "Level 4 room 3", new Coordinates(1, 1),false);
-            maze[2][1] = new Rooms("Room 4", "Level 4 room 4", new Coordinates(2, 1),false);
-            maze[3][1] = new Rooms("Room 5", "Level 4 room 5", new Coordinates(3, 1),false);
-            maze[1][2] = new Rooms("Room 6", "Level 4 room 6", new Coordinates(1, 2),false);
-            maze[1][3] = new Rooms("Room 7", "Level 4 room 7", new Coordinates(1, 3),false);
-            maze[2][3] = new Rooms("Room 8", "Level 4 room 8", new Coordinates(2, 3),false);
-            maze[3][3] = new Rooms("Room 9(stair room)", "Level 4 stair room", new Coordinates(3, 3),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 4 room 1", new Coordinates(0, 0),false);
+            dungeon[0][1] = new Rooms("Room 2", "Level 4 room 2", new Coordinates(0, 1),false);
+            dungeon[1][1] = new Rooms("Room 3", "Level 4 room 3", new Coordinates(1, 1),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 4 room 4", new Coordinates(2, 1),false);
+            dungeon[3][1] = new Rooms("Room 5", "Level 4 room 5", new Coordinates(3, 1),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 4 room 6", new Coordinates(1, 2),false);
+            dungeon[1][3] = new Rooms("Room 7", "Level 4 room 7", new Coordinates(1, 3),false);
+            dungeon[2][3] = new Rooms("Room 8", "Level 4 room 8", new Coordinates(2, 3),false);
+            dungeon[3][3] = new Rooms("Room 9(stair room)", "Level 4 stair room", new Coordinates(3, 3),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 200, 1, 40);
             Monsters goblin = new Monsters("Goblin", 120, 0.4, 60);
             goblin.addMonsterInventory(currentItem.usingWeapon(1));
@@ -183,19 +183,19 @@ public class Level {
         } else if (a == 9) {
             System.out.println("Welcome to level 5");
 
-            Rooms[][] maze = new Rooms[4][4];
-            maze[0][0] = new Rooms("Room 1", "Level 5 room 1", new Coordinates(0, 0),false);
-            maze[0][1] = new Rooms("Room 2", "Level 5 room 2", new Coordinates(0, 1),false);
-            maze[1][1] = new Rooms("Room 3", "Level 5 room 3", new Coordinates(1, 1),false);
-            maze[2][1] = new Rooms("Room 4", "Level 5 room 4", new Coordinates(2, 1),false);
-            maze[3][1] = new Rooms("Room 5", "Level 5 room 5", new Coordinates(3, 1),false);
-            maze[1][2] = new Rooms("Room 6", "Level 5 room 6", new Coordinates(1, 2),false);
-            maze[1][3] = new Rooms("Room 7", "Level 5 room 7", new Coordinates(1, 3),false);
-            maze[2][3] = new Rooms("Room 8", "Level 5 room 8", new Coordinates(2, 3),false);
-            maze[3][3] = new Rooms("Room 9(stair room)", "Level 5 stair room", new Coordinates(3, 3),true);
+            Rooms[][] dungeon = new Rooms[4][4];
+            dungeon[0][0] = new Rooms("Room 1", "Level 5 room 1", new Coordinates(0, 0),false);
+            dungeon[0][1] = new Rooms("Room 2", "Level 5 room 2", new Coordinates(0, 1),false);
+            dungeon[1][1] = new Rooms("Room 3", "Level 5 room 3", new Coordinates(1, 1),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 5 room 4", new Coordinates(2, 1),false);
+            dungeon[3][1] = new Rooms("Room 5", "Level 5 room 5", new Coordinates(3, 1),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 5 room 6", new Coordinates(1, 2),false);
+            dungeon[1][3] = new Rooms("Room 7", "Level 5 room 7", new Coordinates(1, 3),false);
+            dungeon[2][3] = new Rooms("Room 8", "Level 5 room 8", new Coordinates(2, 3),false);
+            dungeon[3][3] = new Rooms("Room 9(stair room)", "Level 5 stair room", new Coordinates(3, 3),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 300, 1.2, 40);
             Monsters dwarf1 = new Monsters("Dwarf", 300, 1.2, 40);
             dwarf1.addMonsterInventory(currentItem.usingArmor(1));
@@ -226,15 +226,15 @@ public class Level {
 
         } else if (a == 11) {
             System.out.println("Welcome to level 6");
-            Rooms[][] maze = new Rooms[2][2];
+            Rooms[][] dungeon = new Rooms[2][2];
 
-            maze[0][0] = new Rooms("Room 1", "Level 6 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 6 room 2", new Coordinates(1, 0),false);
-            maze[1][1] = new Rooms("Room 3", "Level 6 room 3" , new Coordinates(1, 1),false);
-            maze[0][1] = new Rooms("Room 4(stair room)", "Level 6 stair room", new Coordinates(0, 1),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 6 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 6 room 2", new Coordinates(1, 0),false);
+            dungeon[1][1] = new Rooms("Room 3", "Level 6 room 3" , new Coordinates(1, 1),false);
+            dungeon[0][1] = new Rooms("Room 4(stair room)", "Level 6 stair room", new Coordinates(0, 1),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 300, 1.2, 40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(1));
             Monsters goblin = new Monsters("Goblin", 170, 0.6, 60);
@@ -259,18 +259,18 @@ public class Level {
 
         } else if (a == 13) {
             System.out.println("Welcome to level 7");
-            Rooms[][] maze7 = new Rooms[3][3];
+            Rooms[][] dungeon = new Rooms[3][3];
 
-            maze7[0][0] = new Rooms("Room 1", "Level 7 room 1", new Coordinates(0, 0),false);
-            maze7[1][0] = new Rooms("Room 2", "Level 7 room 2", new Coordinates(1, 0),false);
-            maze7[2][0] = new Rooms("Room 3", "Level 7 room 3", new Coordinates(2, 0),false);
-            maze7[2][1] = new Rooms("Room 4", "Level 7 room 4", new Coordinates(2, 1),false);
-            maze7[2][2] = new Rooms("Room 5", "Level 7 room 5", new Coordinates(2, 2),false);
-            maze7[1][2] = new Rooms("Room 6", "Level 7 room 6", new Coordinates(1, 2),false);
-            maze7[0][2] = new Rooms("Room 7(stair room)", "Level 7 stair room", new Coordinates(0, 2),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 7 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 7 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 7 room 3", new Coordinates(2, 0),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 7 room 4", new Coordinates(2, 1),false);
+            dungeon[2][2] = new Rooms("Room 5", "Level 7 room 5", new Coordinates(2, 2),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 7 room 6", new Coordinates(1, 2),false);
+            dungeon[0][2] = new Rooms("Room 7(stair room)", "Level 7 stair room", new Coordinates(0, 2),true);
 
-            Map.map = maze7;
-            Map.currentRoom = maze7[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 300, 1.2, 40);
             Monsters dwarf1 = new Monsters("Dwarf", 300, 1.2, 40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(1,2,2));
@@ -304,17 +304,17 @@ public class Level {
         } else if (a == 15) {
             System.out.println("Welcome to level 8");
 
-            Rooms[][] maze = new Rooms[2][2];
+            Rooms[][] dungeon = new Rooms[2][2];
 
 
-            maze[0][0] = new Rooms("Room 1", "Level 8 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 8 room 2", new Coordinates(1, 0),false);
-            maze[1][1] = new Rooms("Room 3", "Level 8 room 3" , new Coordinates(1, 1),false);
-            maze[0][1] = new Rooms("Room 4(stair room)", "Level 8 stair room", new Coordinates(0, 1),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 8 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 8 room 2", new Coordinates(1, 0),false);
+            dungeon[1][1] = new Rooms("Room 3", "Level 8 room 3" , new Coordinates(1, 1),false);
+            dungeon[0][1] = new Rooms("Room 4(stair room)", "Level 8 stair room", new Coordinates(0, 1),true);
 
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters vampire = new Monsters("Vampire", 600, 3, 150);
             vampire.addMonsterInventory(currentItem.usingWeapon(2,2,3));
             Monsters vampire1 = new Monsters("Vampire", 600, 3, 150);
@@ -345,16 +345,16 @@ public class Level {
         } else if (a == 17) {
             System.out.println("Welcome to level 9");
 
-            Rooms[][] maze = new Rooms[2][2];
+            Rooms[][] dungeon = new Rooms[2][2];
 
 
-            maze[0][0] = new Rooms("Room 1", "Level 9 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 9 room 2", new Coordinates(1, 0),false);
-            maze[1][1] = new Rooms("Room 3", "Level 9 room 3" , new Coordinates(1, 1),false);
-            maze[0][1] = new Rooms("Room 4(stair room)", "Level 9 stair room", new Coordinates(0, 1),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 9 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 9 room 2", new Coordinates(1, 0),false);
+            dungeon[1][1] = new Rooms("Room 3", "Level 9 room 3" , new Coordinates(1, 1),false);
+            dungeon[0][1] = new Rooms("Room 4(stair room)", "Level 9 stair room", new Coordinates(0, 1),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters vampire = new Monsters("Vampire", 600, 3, 150);
             vampire.addMonsterInventory(currentItem.usingWeapon(2));
             Monsters vampire1 = new Monsters("Vampire", 600, 3, 150);
@@ -378,21 +378,21 @@ public class Level {
 
         } else if (a == 19) {
             System.out.println("Welcome to level 10");
-            Rooms[][] maze10 = new Rooms[4][4];
+            Rooms[][] dungeon = new Rooms[4][4];
 
-            maze10[0][0] = new Rooms("Room 1", "Level 10 room 1", new Coordinates(0, 0),false);
-            maze10[1][0] = new Rooms("Room 2", "Level 10 room 2", new Coordinates(1, 0),false);
-            maze10[2][0] = new Rooms("Room 3", "Level 10 room 3", new Coordinates(2, 0),false);
-            maze10[3][0] = new Rooms("Room 4", "Level 10 room 4", new Coordinates(3, 0),false);
-            maze10[3][1] = new Rooms("Room 5", "Level 10 room 5 ", new Coordinates(3, 1),false);
-            maze10[3][2] = new Rooms("Room 6", "Level 10 room 6", new Coordinates(3, 2),false);
-            maze10[3][3] = new Rooms("Room 7", "Level 10 room 7", new Coordinates(3, 3),false);
-            maze10[2][3] = new Rooms("Room 8", "Level 10 room 8", new Coordinates(2, 3),false);
-            maze10[1][3] = new Rooms("Room 9", "Level 10 room 9", new Coordinates(1, 3),false);
-            maze10[1][2] = new Rooms("Room 10(stair room)", "Level 10 stair room", new Coordinates(1, 2),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 10 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 10 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 10 room 3", new Coordinates(2, 0),false);
+            dungeon[3][0] = new Rooms("Room 4", "Level 10 room 4", new Coordinates(3, 0),false);
+            dungeon[3][1] = new Rooms("Room 5", "Level 10 room 5 ", new Coordinates(3, 1),false);
+            dungeon[3][2] = new Rooms("Room 6", "Level 10 room 6", new Coordinates(3, 2),false);
+            dungeon[3][3] = new Rooms("Room 7", "Level 10 room 7", new Coordinates(3, 3),false);
+            dungeon[2][3] = new Rooms("Room 8", "Level 10 room 8", new Coordinates(2, 3),false);
+            dungeon[1][3] = new Rooms("Room 9", "Level 10 room 9", new Coordinates(1, 3),false);
+            dungeon[1][2] = new Rooms("Room 10(stair room)", "Level 10 stair room", new Coordinates(1, 2),true);
 
-            Map.map = maze10;
-            Map.currentRoom = maze10[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 300, 1, 40);
             Monsters dwarf1 = new Monsters("Dwarf", 300, 1, 40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(2,2,2));
@@ -425,19 +425,19 @@ public class Level {
             Map.getRoom(1,0).settingMonsters(dwarf2);
         } else if (a == 21) {
             System.out.println("Welcome to level 11");
-            Rooms[][] maze = new Rooms[3][3];
+            Rooms[][] dungeon = new Rooms[3][3];
 
-            maze[0][0] = new Rooms("Room 1", "Level 11 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 11 room 2", new Coordinates(1, 0),false);
-            maze[2][0] = new Rooms("Room 3", "Level 11 room 3", new Coordinates(2, 0),false);
-            maze[2][1] = new Rooms("Room 4", "Level 11 room 4 ", new Coordinates(2, 1),false);
-            maze[1][1] = new Rooms("Room 5", "Level 11 room 5" , new Coordinates(1, 1),false);
-            maze[1][2] = new Rooms("Room 6", "Level 11 room 6", new Coordinates(1, 2),false);
-            maze[0][2] = new Rooms("Room 7(stair room)", "Level 11 stair room", new Coordinates(0, 2),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 11 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 11 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 11 room 3", new Coordinates(2, 0),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 11 room 4 ", new Coordinates(2, 1),false);
+            dungeon[1][1] = new Rooms("Room 5", "Level 11 room 5" , new Coordinates(1, 1),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 11 room 6", new Coordinates(1, 2),false);
+            dungeon[0][2] = new Rooms("Room 7(stair room)", "Level 11 stair room", new Coordinates(0, 2),true);
 
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 300, 1, 40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(1,1,1));
             Monsters dwarf1 = new Monsters("Dwarf", 300, 1, 40);
@@ -471,22 +471,22 @@ public class Level {
         } else if (a == 23) {
             System.out.println("Welcome to level 12");
 
-            Rooms[][] maze = new Rooms[5][5];
+            Rooms[][] dungeon = new Rooms[5][5];
 
-            maze[0][1] = new Rooms("Room 1","Level 12 Room 1",new Coordinates(0,1),false);
-            maze[1][1] = new Rooms("Room 3","Level 12 room 3",new Coordinates(1,1),false);
-            maze[1][0] = new Rooms("Room 2","Level 12 room 2",new Coordinates(1,0),false);
-            maze[1][2] = new Rooms("Room 4","Level 12 room 4",new Coordinates(1,2),false);
-            maze[2][2] = new Rooms("Room 5","Level 12 room 5",new Coordinates(2,2),false);
-            maze[2][3] = new Rooms("Room 6","Level 12 room 6",new Coordinates(2,3),false);
-            maze[3][3] = new Rooms("Room 7","Level 12 room 7",new Coordinates(3,3),false);
-            maze[4][3] = new Rooms("Room 10","Level 12 room 10",new Coordinates(4,3),false);
-            maze[4][2] = new Rooms("Room 9","Level 12 room 9",new Coordinates(4,2),false);
-            maze[4][1] = new Rooms("Room 8(stair room)","Level 12 stair room",new Coordinates(4,1),true);
+            dungeon[0][1] = new Rooms("Room 1","Level 12 Room 1",new Coordinates(0,1),false);
+            dungeon[1][1] = new Rooms("Room 3","Level 12 room 3",new Coordinates(1,1),false);
+            dungeon[1][0] = new Rooms("Room 2","Level 12 room 2",new Coordinates(1,0),false);
+            dungeon[1][2] = new Rooms("Room 4","Level 12 room 4",new Coordinates(1,2),false);
+            dungeon[2][2] = new Rooms("Room 5","Level 12 room 5",new Coordinates(2,2),false);
+            dungeon[2][3] = new Rooms("Room 6","Level 12 room 6",new Coordinates(2,3),false);
+            dungeon[3][3] = new Rooms("Room 7","Level 12 room 7",new Coordinates(3,3),false);
+            dungeon[4][3] = new Rooms("Room 10","Level 12 room 10",new Coordinates(4,3),false);
+            dungeon[4][2] = new Rooms("Room 9","Level 12 room 9",new Coordinates(4,2),false);
+            dungeon[4][1] = new Rooms("Room 8(stair room)","Level 12 stair room",new Coordinates(4,1),true);
 
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][1];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][1];
 
             Monsters dwarf = new Monsters("Dwarf",300,1,40);
             dwarf.addMonsterInventory(currentItem.usingWeapon(2,1,1));
@@ -514,18 +514,18 @@ public class Level {
             Map.getRoom(3,3).settingMonsters(vampire1);
         } else if (a == 25) {
             System.out.println("Welcome to level 13");
-            Rooms[][] maze = new Rooms[3][4];
+            Rooms[][] dungeon = new Rooms[3][4];
 
-            maze[0][0] = new Rooms("Room 1", "Level 13 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 13 room 2", new Coordinates(1, 0),false);
-            maze[2][0] = new Rooms("Room 3", "Level 13 room 3", new Coordinates(2, 0),false);
-            maze[2][1] = new Rooms("Room 4", "Level 13 room 4", new Coordinates(2, 1),false);
-            maze[2][2] = new Rooms("Room 5", "Level 13 room 5", new Coordinates(2, 2),false);
-            maze[1][2] = new Rooms("Room 6", "Level 13 room 6", new Coordinates(1, 2),false);
-            maze[0][2] = new Rooms("Room 7(stair room)", "Level 13 stair room", new Coordinates(2, 3),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 13 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 13 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 13 room 3", new Coordinates(2, 0),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 13 room 4", new Coordinates(2, 1),false);
+            dungeon[2][2] = new Rooms("Room 5", "Level 13 room 5", new Coordinates(2, 2),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 13 room 6", new Coordinates(1, 2),false);
+            dungeon[0][2] = new Rooms("Room 7(stair room)", "Level 13 stair room", new Coordinates(2, 3),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 400, 1.5, 70);
             dwarf.addMonsterInventory(currentItem.usingWeapon(1,1,1));
             Monsters dwarf1 = new Monsters("Dwarf", 400, 1.5, 70);
@@ -551,18 +551,18 @@ public class Level {
             Map.getRoom(1,0).settingMonsters(vampire1);
         } else if (a == 27) {
             System.out.println("Welcome to level 14");
-            Rooms[][] maze = new Rooms[3][4];
+            Rooms[][] dungeon = new Rooms[3][4];
 
-            maze[0][0] = new Rooms("Room 1", "Level 14 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 14 room 2", new Coordinates(1, 0),false);
-            maze[2][0] = new Rooms("Room 3", "Level 14 room 3", new Coordinates(2, 0),false);
-            maze[2][1] = new Rooms("Room 4", "Level 14 room 4", new Coordinates(2, 1),false);
-            maze[2][2] = new Rooms("Room 5", "Level 14 room 5", new Coordinates(2, 2),false);
-            maze[1][2] = new Rooms("Room 6", "Level 14 room 6", new Coordinates(1, 2),false);
-            maze[0][2] = new Rooms("Room 7(stair room)", "Level 14 stair room", new Coordinates(2, 3),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 14 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 14 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 14 room 3", new Coordinates(2, 0),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 14 room 4", new Coordinates(2, 1),false);
+            dungeon[2][2] = new Rooms("Room 5", "Level 14 room 5", new Coordinates(2, 2),false);
+            dungeon[1][2] = new Rooms("Room 6", "Level 14 room 6", new Coordinates(1, 2),false);
+            dungeon[0][2] = new Rooms("Room 7(stair room)", "Level 14 stair room", new Coordinates(2, 3),true);
 
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 400, 1.5, 70);
             dwarf.addMonsterInventory(currentItem.usingArmor(2));
             Monsters dwarf1 = new Monsters("Dwarf", 400, 1.5, 70);
@@ -591,20 +591,20 @@ public class Level {
 
         } else if (a == 29) {
             System.out.println("Welcome to level 15");
-            Rooms[][] maze15 = new Rooms[5][4];
+            Rooms[][] dungeon = new Rooms[5][4];
 
-            maze15[0][0] = new Rooms("Room 1", "Level 15 room 1", new Coordinates(0, 0),false);
-            maze15[1][0] = new Rooms("Room 2", "Level 15 room 2", new Coordinates(1, 0),false);
-            maze15[2][0] = new Rooms("Room 3", "Level 15 room 3", new Coordinates(2, 0),false);
-            maze15[2][1] = new Rooms("Room 4", "Level 15 room 4", new Coordinates(2, 1),false);
-            maze15[2][2] = new Rooms("Room 5", "Level 15 room 5", new Coordinates(2, 2),false);
-            maze15[3][2] = new Rooms("Room 6", "Level 15 room 6", new Coordinates(3, 2),false);
-            maze15[4][2] = new Rooms("Room 7", "Level 15 room 7", new Coordinates(4, 2),false);
-            maze15[4][1] = new Rooms("Room 8", "Level 15 room 8", new Coordinates(4, 1),false);
-            maze15[4][0] = new Rooms("Room 9(stair room)", "Level 15 stair room", new Coordinates(4, 0),true);
+            dungeon[0][0] = new Rooms("Room 1", "Level 15 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 15 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 15 room 3", new Coordinates(2, 0),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 15 room 4", new Coordinates(2, 1),false);
+            dungeon[2][2] = new Rooms("Room 5", "Level 15 room 5", new Coordinates(2, 2),false);
+            dungeon[3][2] = new Rooms("Room 6", "Level 15 room 6", new Coordinates(3, 2),false);
+            dungeon[4][2] = new Rooms("Room 7", "Level 15 room 7", new Coordinates(4, 2),false);
+            dungeon[4][1] = new Rooms("Room 8", "Level 15 room 8", new Coordinates(4, 1),false);
+            dungeon[4][0] = new Rooms("Room 9(stair room)", "Level 15 stair room", new Coordinates(4, 0),true);
 
-            Map.map = maze15;
-            Map.currentRoom = maze15[0][0];
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters dwarf = new Monsters("Dwarf", 400, 1.5, 70);
             dwarf.addMonsterInventory(currentItem.usingWeapon(2));
             Monsters dwarf1 = new Monsters("Dwarf", 400, 1.5, 70);
@@ -642,17 +642,17 @@ public class Level {
 
         } else if (a == 31) {
             System.out.println("Welcome to level 16. You are in the end.");
-            Rooms[][] maze = new Rooms[3][4];
+            Rooms[][] dungeon = new Rooms[3][4];
 
-            maze[0][0] = new Rooms("Room 1", "Level 16 room 1", new Coordinates(0, 0),false);
-            maze[1][0] = new Rooms("Room 2", "Level 16 room 2", new Coordinates(1, 0),false);
-            maze[2][0] = new Rooms("Room 3", "Level 16 room 3", new Coordinates(2, 0),false);
-            maze[2][1] = new Rooms("Room 4", "Level 16 room 4", new Coordinates(2, 1),false);
-            maze[2][2] = new Rooms("Room 5", "Level 16 room 5", new Coordinates(2, 2),false);
-            maze[1][2] = new Rooms("Room 6(Boss Room)", "Level 16 room 6", new Coordinates(1, 2),false);
-            maze[0][2] = new Rooms("Room 7(stair room)", "Level 16 stair room", new Coordinates(2, 3),true);
-            Map.map = maze;
-            Map.currentRoom = maze[0][0];
+            dungeon[0][0] = new Rooms("Room 1", "Level 16 room 1", new Coordinates(0, 0),false);
+            dungeon[1][0] = new Rooms("Room 2", "Level 16 room 2", new Coordinates(1, 0),false);
+            dungeon[2][0] = new Rooms("Room 3", "Level 16 room 3", new Coordinates(2, 0),false);
+            dungeon[2][1] = new Rooms("Room 4", "Level 16 room 4", new Coordinates(2, 1),false);
+            dungeon[2][2] = new Rooms("Room 5", "Level 16 room 5", new Coordinates(2, 2),false);
+            dungeon[1][2] = new Rooms("Room 6(Boss Room)", "Level 16 room 6", new Coordinates(1, 2),false);
+            dungeon[0][2] = new Rooms("Room 7(stair room)", "Level 16 stair room", new Coordinates(2, 3),true);
+            Map.map = dungeon;
+            Map.currentRoom = dungeon[0][0];
             Monsters boss = new Monsters("Undead Knight(a.k.a. The Boss)", 1800, 6, 300);
             TownPeople healer = new TownPeople("Healer",2500, true);
             Map.getRoom(1,2).settingMonsters(boss);

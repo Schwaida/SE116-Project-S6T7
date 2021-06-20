@@ -15,6 +15,7 @@ public class Monsters extends Characters{
     }
 
 
+    public Monsters() {
 
-
+    }
 }

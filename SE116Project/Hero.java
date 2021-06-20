@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Hero extends Characters{
     public static ArrayList<String> heroInventory = new ArrayList<>();
 
-    private static final int hitPoint =20000;
+    private static final int hitPoint =10000;
     private static final double defense =0.8;
     private static final double damage =50;
 

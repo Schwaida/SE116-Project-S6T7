@@ -1,5 +1,8 @@
 package SE116Project;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public abstract class Texts {
 
     public static void StoryText() throws InterruptedException {
@@ -18,6 +21,19 @@ public abstract class Texts {
         System.out.println("Use your attack options carefully, don't forget to check your HP and monsters HP");
         Thread.sleep(2000);
         System.out.println("Now if you are ready to begin.....");
+    }
+
+    public static void score(){
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter("HighScore.txt",true);
+            fileWriter.write("\nTotal saved: "+Game.savedTownPeopleCount+ " Towns people");
+            fileWriter.write("\nYour highscore is= "+(Game.savedTownPeopleCount*102));
+
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error has occured!");
+        }
     }
 
 

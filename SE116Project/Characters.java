@@ -1,14 +1,15 @@
 package SE116Project;
 
 import java.util.ArrayList;
+
 import static SE116Project.Game.scanner;
 
 public class Characters {
     private String name;
     private double defense;
-    // private char movement;  Belki w-a-s-d
+
     private double damage;
-    private double hitPoint;// =getHitPoint()- weapons.getDamage();
+    private double hitPoint;
     private ArrayList<String> heroInventory;
     private ArrayList<String> monsterInventory;
 
@@ -92,9 +93,7 @@ public class Characters {
         this.hitPoint = hitPoint;
     }
 
-   /* public boolean isDead() {
-        return hitPoint <= 0;
-    }*/
+
 
 
     public ArrayList<String> getHeroInventory() {
@@ -116,9 +115,7 @@ public class Characters {
     }
 
 
-    /*public void setInventory(String items) {
-        heroInventory.add(items);
-    }*/
+
 
     public static void showHeroInventory(){
         Characters characters = new Characters();
@@ -161,17 +158,13 @@ public class Characters {
 
 
                 if (Rooms.getDroppedItem() != null && !Rooms.getDroppedItem().isEmpty()) {
-                    //Map.currentRoom.setDroppedInfo(String.valueOf(item));
+
 
                     Map.currentRoom.setDroppedInfo(item);
                 }
 
 
-                //System.out.println("thr is "+Map.currentRoom.getDefinition());
 
-                //System.out.println("there is " + Map.currentRoom.getDroppedInfo());
-                //System.out.println("There is " + Rooms.getDroppedItem() + " in " + Map.currentRoom.getRoomName());
-                // odaya düşürülen şeyleri set et
 
                 try{
                     if (Game.currentItem.getWeaponName().contains(item)){
@@ -189,7 +182,7 @@ public class Characters {
                     System.out.println("empty cloth");
                 }
 
-                // burda sorun
+                //
 
 
 
@@ -202,9 +195,7 @@ public class Characters {
     public void setMonsterInventory(ArrayList<String> monsterInventory) {
         this.monsterInventory = monsterInventory;
     }
-    /*public void addMonsterInventory(String monsterInventory){
-        this.heroInventory.addAll(Collections.singleton(monsterInventory));
-    }*/
+
     public void addMonsterInventory(String monsterInv){
         //this.heroInventory.add(String.valueOf(monsterInventory));
         monsterInventory.add(String.valueOf(monsterInv));
@@ -223,21 +214,21 @@ public class Characters {
         String status;
 
         if(hitPoint >= 200) {
-            status = "Still looking strong ";
+            status = "Looking good ";
         }else if(hitPoint < 200 && hitPoint >= 100) {
-            status = "It looks barely injured";
+            status = "Injured";
         }else if(hitPoint< 100 && hitPoint > 0 ) {
-            status = "It looks near dead";
+            status = "Almost dead";
         }else {
-            status = "It looks dead";
+            status = " ";
         }
 
         if(hitPoint >0)
             System.out.println(" ** " + name.toUpperCase() + " HP --> " + hitPoint+ " [ " + status + " ] "); //+ " ** Damage power (?) " + damage + " [ " + status + " ] ");
         else
-            System.out.println(" ** " + name.toUpperCase() + "  [ DEFEATED ] ");
+            System.out.println(" ** " + name.toUpperCase() + "  [is about to die, it will try to attack one more time ] ");
     }
-    public int attack(Characters characters) {   // burası random yerine canavarın ve hero nun sahip oldugu edvantere göre olmalı
+    public int attack(Characters characters) {
 
         if(characters != null) {
             double random = Math.random();

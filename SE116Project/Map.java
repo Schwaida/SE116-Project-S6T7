@@ -8,17 +8,16 @@ package SE116Project;
 
 
 
-    public static boolean checkDirection(int roomX, int roomY) {
+    public static boolean checkRoom(int roomX, int roomY) {
         return  ((roomX >= 0 && roomX < map.length) &&
                 (roomY >= 0 && roomY < map.length) &&
                 map[roomX][roomY] != null);
     }
 
 
-    public static void moveDirection(int roomX, int roomY) {
-        if(checkDirection(roomX, roomY)) {
+    public static void move(int roomX, int roomY) {
+        if(checkRoom(roomX, roomY)) {
             currentRoom = map[roomX][roomY];
-
         }
     }
 
