@@ -4,11 +4,14 @@ import java.util.ArrayList;
 
 public class Rooms {
     private Coordinates coordinates;
+    private ArrayList<Hero> heroes;
     private ArrayList<Monsters> monsters;
     private ArrayList<TownPeople> townPeoples;
     private String roomName;
     private String definition;
     private boolean stairRoom;
+    private String droppedInfo;
+    private static ArrayList<String> droppedItem;
 
     public Rooms(String roomName, String definition, Coordinates coordinates) {
         this(roomName, definition, coordinates, new ArrayList<Monsters>(),new ArrayList<TownPeople>());
@@ -20,6 +23,7 @@ public class Rooms {
         this.stairRoom=stairRoom;
         this.townPeoples=new ArrayList<TownPeople>();
         this.monsters=new ArrayList<Monsters>();
+       droppedItem = new ArrayList<>();
 
     }
 
@@ -30,6 +34,16 @@ public class Rooms {
         this.coordinates = coordinates;
         this.monsters = monsters;
         this.townPeoples=townPeoples;
+        droppedItem = new ArrayList<>();
+
+    }
+
+    public static ArrayList<String> getDroppedItem() {
+        return droppedItem;
+    }
+
+    public static void setDroppedItem(ArrayList<String> droppedItem) {
+        Rooms.droppedItem = droppedItem;
     }
 
 
@@ -98,5 +112,21 @@ public class Rooms {
 
     public void setStairRoom(boolean stairRoom) {
         this.stairRoom = stairRoom;
+    }
+
+    public ArrayList<Hero> getHeroes() {
+        return heroes;
+    }
+
+    public void setHeroes(ArrayList<Hero> heroes) {
+        this.heroes = heroes;
+    }
+
+    public String getDroppedInfo() {
+        return droppedInfo;
+    }
+
+    public void setDroppedInfo(String droppedInfo) {
+        this.droppedInfo = droppedInfo;
     }
 }

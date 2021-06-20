@@ -1,20 +1,23 @@
 package SE116Project;
 
+import java.util.ArrayList;
+
 public class Hero extends Characters{
+    public static ArrayList<String> heroInventory = new ArrayList<>();
 
-    private static final int hitPoint =200000;
+    private static final int hitPoint =20000;
     private static final double defense =0.8;
-    private static final double strength =50;
+    private static final double damage =50;
 
 
 
-    public Hero(String name, int hitPoint,double defense,double strength) {
-        super(name,hitPoint,defense,strength);
+    public Hero(String name, int hitPoint,double defense,double damage) {
+        super(name,hitPoint,defense,damage);
 
     }
 
     public Hero(String name){
-        this(name,hitPoint,defense,strength);
+        this(name,hitPoint,defense,damage);
     }
 
 

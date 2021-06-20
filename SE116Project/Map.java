@@ -1,6 +1,6 @@
 package SE116Project;
 
-final public class Map {
+ public class Map {
 
 
     public static Rooms[][] map;
