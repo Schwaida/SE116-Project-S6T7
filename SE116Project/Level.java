@@ -165,6 +165,7 @@ public class Level {
             Monsters zombie = new Monsters("Zombie", 150, 0.6, 30);
             zombie.addMonsterInventory(currentItem.usingArmor(1));
             Monsters vampire = new Monsters("Vampire", 400, 1.5, 100);
+            Monsters vampire1 = new Monsters("Vampire", 400, 1.5, 100);
             vampire.addMonsterInventory(currentItem.usingWeapon(2,3,1));
             TownPeople healer = new TownPeople("Healer",200,true);
             TownPeople townPeople = new TownPeople("Town People", false);
@@ -174,7 +175,7 @@ public class Level {
             Map.getRoom(1,1).settingTownsPeople(healer);
             Map.getRoom(2,1).settingMonsters(elf);
             Map.getRoom(2,3).settingMonsters(zombie);
-            Map.getRoom(2,3).settingMonsters(vampire);
+            Map.getRoom(2,3).settingMonsters(vampire1);
             Map.getRoom(2,3).settingMonsters(skeleton);
             Map.getRoom(2,3).settingTownsPeople(townPeople);
             Map.getRoom(3,1).settingMonsters(skeleton);
@@ -288,10 +289,10 @@ public class Level {
             vampire.addMonsterInventory(currentItem.usingWeapon(2,2,2));
             TownPeople townPeople = new TownPeople("Town People", false);
             TownPeople healer = new TownPeople("Healer",300, true);
-            Map.getRoom(1,1).settingMonsters(dwarf);
-            Map.getRoom(1,1).settingMonsters(goblin);
-            Map.getRoom(1,1).settingMonsters(elf);
-            Map.getRoom(1,1).settingTownsPeople(townPeople);
+            Map.getRoom(2,1).settingMonsters(dwarf);
+            Map.getRoom(2,1).settingMonsters(goblin);
+            Map.getRoom(2,1).settingMonsters(elf);
+            Map.getRoom(2,1).settingTownsPeople(townPeople);
             Map.getRoom(1,0).settingMonsters(skeleton1);
             Map.getRoom(1,0).settingMonsters(skeleton);
             Map.getRoom(1,0).settingMonsters(zombie1);
